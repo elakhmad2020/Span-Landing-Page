@@ -6,15 +6,29 @@
 <title>Span Healthcare — Save for Your Health</title>
 <link rel="canonical" href="https://span-healthcare.com/">
 <meta name="description" content="One platform. All your health savings needs. Trusted by individuals, families, and organisations across Nigeria.">
+<link rel="icon" type="image/png" sizes="32x32" href="img/Asset 4.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/Asset 4.png">
+<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="img/Asset 4.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --teal:#459DAF;--teal-d:#2d7f91;--teal-l:#5bbfcf;--teal-v:#00B4D0;
-  --teal-xl:#A8E6F0;--coral:#FF6B52;--navy:#0B2A30;--gold:#F5A623;
-  --white:#ffffff;--cream:#F2FAFC;--text:#0B2A30;--mid:#3A6872;
-  --light:#6A9DAA;--border:#C4DDE3;
+  --teal:#00C8E8;
+  --teal-d:#0099B8;
+  --teal-l:#33D6F0;
+  --teal-v:#00E5FF;
+  --teal-xl:#99EEFF;
+  --coral:#FF3D00;
+  --navy:#020C12;
+  --gold:#FFB300;
+  --white:#ffffff;
+  --cream:#E8FAFD;
+  --text:#020C12;
+  --mid:#006880;
+  --light:#00A8C8;
+  --border:#00C8E8;
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
@@ -45,11 +59,22 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
    HERO — illustrated art background
 ══════════════════════════════════════════════ */
 .hero{
-  padding-top:64px;min-height:100vh;
+  padding-top:114px;min-height:100vh;
   position:relative;overflow:hidden;
   background:#f8fcfd;
-  display:flex;flex-direction:column;justify-content:center;
-  padding-left:5%;padding-right:5%;padding-bottom:60px;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding-left:6%;padding-right:0;padding-bottom:40px;
+}
+.hero-left{
+  position:relative;z-index:2;
+  padding-right:5%;
+}
+.hero-right{
+  position:relative;z-index:1;
+  height:100%;min-height:580px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
 }
 /* The art illustration sits as the background */
 .hero-art{
@@ -59,34 +84,34 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 /* Gradient overlay so text on left stays readable */
 .hero-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(
-    90deg,
-    rgba(248,252,253,0.96) 0%,
-    rgba(248,252,253,0.88) 35%,
-    rgba(248,252,253,0.3) 65%,
+  background:radial-gradient(
+    ellipse 60% 70% at 50% 50%,
+    rgba(248,252,253,0.92) 0%,
+    rgba(248,252,253,0.72) 45%,
+    rgba(248,252,253,0.15) 75%,
     rgba(248,252,253,0.0) 100%
   );
   pointer-events:none;z-index:1;
 }
-.hero-content{position:relative;z-index:2;max-width:580px;padding:48px 0 40px}
-.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;background:rgba(69,157,175,.12);border:1.5px solid rgba(69,157,175,.28);font-size:.65rem;font-weight:600;color:var(--teal-d);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.6rem;font-family:'Inter',sans-serif;width:fit-content}
+.hero-content{position:relative;z-index:2;max-width:580px;padding:20px 0;text-align:left}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;background:rgba(69,157,175,.12);border:1.5px solid rgba(69,157,175,.28);font-size:.65rem;font-weight:600;color:var(--teal-d);letter-spacing:.1em;text-transform:uppercase;margin:0 auto 1.6rem;font-family:'Inter',sans-serif;width:fit-content}
 .bdot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 .hero h1{font-family:'Inter',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;line-height:1.08;letter-spacing:-.03em;color:var(--navy);margin-bottom:1.1rem}
 .hero h1 em{font-style:normal;color:var(--teal)}
-.hero-sub{font-size:1.05rem;color:var(--mid);max-width:460px;line-height:1.78;margin-bottom:2.2rem;font-weight:400}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2.8rem}
+.hero-sub{font-size:1.05rem;color:var(--mid);max-width:420px;line-height:1.78;margin:0 0 2.2rem;font-weight:400}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2.8rem;justify-content:flex-start}
 .btn-p{padding:13px 28px;background:var(--teal);color:#fff;border-radius:9px;font-size:.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;border:none;cursor:pointer;transition:all .22s}
 .btn-p:hover{background:var(--teal-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(69,157,175,.4)}
 .btn-o{padding:13px 24px;background:rgba(255,255,255,.9);color:var(--navy);border-radius:9px;font-size:.9rem;font-weight:500;text-decoration:none;border:1.5px solid var(--border);font-family:'DM Sans',sans-serif;transition:all .22s;backdrop-filter:blur(8px)}
 .btn-o:hover{border-color:var(--teal);color:var(--teal)}
-.hero-stats{display:flex;gap:2.4rem;padding-top:2rem;border-top:1px solid rgba(69,157,175,.2);flex-wrap:wrap}
+.hero-stats{display:flex;gap:2rem;padding-top:2rem;border-top:1px solid rgba(69,157,175,.2);flex-wrap:wrap;justify-content:flex-start}
 .hs{}.hs-v{font-family:'Inter',sans-serif;font-size:1.6rem;font-weight:700;color:var(--navy);line-height:1;letter-spacing:-.02em}
 .hs-v span{color:var(--teal)}
 .hs-l{font-size:.68rem;color:var(--light);text-transform:uppercase;letter-spacing:.07em;margin-top:4px;font-family:'Inter',sans-serif}
 
 /* ── MARQUEE ── */
-.strip{background:var(--navy);padding:14px 0;overflow:hidden;border-top:2px solid var(--teal-d)}
+.strip{background:var(--navy);padding:14px 0;overflow:hidden;border-top:2px solid var(--teal-d);position:fixed;top:64px;left:0;right:0;z-index:99}
 .strip-track{display:flex;animation:scroll 26s linear infinite;width:max-content}
 .si{padding:0 36px;border-right:1px solid rgba(255,255,255,.12);font-size:.68rem;font-weight:600;color:rgba(255,255,255,.75);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;font-family:'Inter',sans-serif}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -233,7 +258,15 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 .btn-co:hover{border-color:#fff;color:#fff}
 
 /* ── FOOTER ── */
-footer{background:#060e11;padding:60px 5% 28px}
+footer{
+  background:#060e11;padding:60px 5% 28px;
+  --teal:#459DAF;
+  --teal-d:#2d7f91;
+  --teal-l:#5bbfcf;
+  --teal-xl:#98B7B9;
+  --light:#6A9DAA;
+  --border:#2a5a66;
+}
 .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:2.8rem;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
 .f-brand{font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--teal-xl);display:flex;align-items:center;gap:9px}
 .f-desc{font-size:.75rem;color:rgba(255,255,255,.28);line-height:1.88;max-width:220px;margin-top:12px;font-family:'DM Sans',sans-serif}
@@ -244,9 +277,93 @@ footer{background:#060e11;padding:60px 5% 28px}
 .fc a:hover{color:var(--teal-xl)}
 .f-contact{font-size:.73rem;color:rgba(255,255,255,.34);line-height:2.1;font-family:'DM Sans',sans-serif}
 .f-bot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:1rem}
-.f-bot p{font-size:.64rem;color:rgba(255,255,255,.18);font-family:'DM Sans',sans-serif}
-.f-halal{font-size:.62rem;color:rgba(255,255,255,.18);display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif}
+.f-bot p{font-size:.64rem;color:rgba(255,255,255,.55);font-family:'DM Sans',sans-serif}
+.f-halal{font-size:.62rem;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif}
 .f-halal::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);opacity:.5}
+
+/* ── HERO ART ANIMATIONS ── */
+.hero-art{
+  position:absolute;
+  right:0;top:0;
+  width:52%;height:100%;
+  pointer-events:none;
+}
+@keyframes float-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes float-down{0%,100%{transform:translateY(0)}50%{transform:translateY(14px)}}
+@keyframes orbit-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes orbit-spin-r{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes shield-pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.75;transform:scale(1.04)}}
+@keyframes bar1{0%{transform:scaleY(0);opacity:0}100%{transform:scaleY(1);opacity:1}}
+@keyframes heartbeat{
+  0%{stroke-dashoffset:600}
+  60%{stroke-dashoffset:0}
+  80%{stroke-dashoffset:0;opacity:1}
+  100%{stroke-dashoffset:0;opacity:1}
+}
+@keyframes draw-stem{0%{stroke-dashoffset:300;opacity:0}100%{stroke-dashoffset:0;opacity:.7}}
+@keyframes glow-pulse{
+  0%,100%{filter:drop-shadow(0 0 4px rgba(0,194,217,.35))}
+  50%{filter:drop-shadow(0 0 18px rgba(0,240,255,.85))}
+}
+@keyframes coin-spin{0%,100%{transform:rotateX(0deg)}50%{transform:rotateX(20deg)}}
+@keyframes naira-drift{0%,100%{opacity:.2;transform:translateY(0)}50%{opacity:.45;transform:translateY(-10px)}}
+@keyframes fade-in-up{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+
+.art-coins{animation:float-up 4s ease-in-out infinite}
+.art-plant-stem{stroke-dasharray:300;stroke-dashoffset:300;animation:draw-stem 2.5s ease forwards 0.5s}
+.art-orbit1{transform-origin:300px 440px;animation:orbit-spin 18s linear infinite}
+.art-orbit2{transform-origin:300px 440px;animation:orbit-spin-r 12s linear infinite}
+.art-shield{animation:shield-pulse 3s ease-in-out infinite}
+.art-heartbeat{stroke-dasharray:600;stroke-dashoffset:600;animation:heartbeat 2.2s ease forwards 1s,glow-pulse 2s ease-in-out infinite 3s}
+.art-bar1{transform-origin:bottom;transform:scaleY(0);animation:bar1 1s cubic-bezier(.34,1.56,.64,1) forwards 1.2s}
+.art-bar2{transform-origin:bottom;transform:scaleY(0);animation:bar1 1s cubic-bezier(.34,1.56,.64,1) forwards 1.4s}
+.art-bar3{transform-origin:bottom;transform:scaleY(0);animation:bar1 1s cubic-bezier(.34,1.56,.64,1) forwards 1.6s}
+.art-bar4{transform-origin:bottom;transform:scaleY(0);animation:bar1 1s cubic-bezier(.34,1.56,.64,1) forwards 1.8s}
+.art-bar5{transform-origin:bottom;transform:scaleY(0);animation:bar1 1s cubic-bezier(.34,1.56,.64,1) forwards 2s}
+.art-steth{animation:glow-pulse 3s ease-in-out infinite 0.5s}
+.art-naira1{animation:naira-drift 5s ease-in-out infinite}
+.art-naira2{animation:naira-drift 6s ease-in-out infinite 1s}
+.art-naira3{animation:naira-drift 4.5s ease-in-out infinite 2s}
+.art-wallet{animation:float-down 5s ease-in-out infinite}
+/* Full screen coin roll */
+.coin-screen{
+  position:fixed;
+  bottom:80px;
+  left:0;
+  z-index:9;
+  pointer-events:none;
+  animation:coin-fullscreen 7s linear infinite;
+}
+@keyframes coin-fullscreen{
+  0%{transform:translateX(-160px) rotate(0deg);opacity:0}
+  5%{opacity:1}
+  95%{opacity:1}
+  100%{transform:translateX(110vw) rotate(900deg);opacity:0}
+}
+@keyframes figure-glow{
+  0%,100%{filter:drop-shadow(0 0 8px rgba(69,157,175,.4))}
+  50%{filter:drop-shadow(0 0 28px rgba(0,180,208,.9))}
+}
+@keyframes bg-shift{
+  0%,100%{opacity:.85}
+  50%{opacity:1}
+}
+.art-figure{animation:figure-glow 4s ease-in-out infinite}
+.art-bg{animation:bg-shift 6s ease-in-out infinite}
+@keyframes coin-roll{
+  0%{transform:translate(-150px,760px) rotate(0deg)}
+  100%{transform:translate(750px,760px) rotate(720deg)}
+}
+@keyframes coin-shimmer{
+  0%,100%{opacity:.12}
+  50%{opacity:.45}
+}
+.art-big-coin{
+  animation:coin-roll 5s linear infinite;
+}
+.art-coin-shine{
+  animation:coin-shimmer .5s linear infinite;
+}
 
 /* ── REVEAL ── */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
@@ -271,211 +388,26 @@ footer{background:#060e11;padding:60px 5% 28px}
 
 <header id="nav">
   <a href="#" class="nav-logo">
-    <svg width="32" height="32" viewBox="0 0 120 120" fill="none">
-      <polygon points="28,14 82,14 70,44 16,44" fill="#0B6577"/>
-      <path d="M70,44 C90,44 96,58 82,68 C68,78 24,72 24,86" stroke="#459DAF" stroke-width="11" stroke-linecap="round" fill="none"/>
-      <polygon points="38,76 92,76 80,106 26,106" fill="#459DAF"/>
-    </svg>
-    <span class="nav-wm">Span Healthcare</span>
+    <img src="img/Asset 2.png" alt="Span Healthcare" style="height:40px;width:auto;object-fit:contain">
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#why">Why Span</a></li>
-    <li><a href="#testimonials">Members</a></li>
+    <li><a href="#why">Why Span?</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
   </ul>
   <div class="nav-r">
     <a href="https://span-hfintech.vercel.app" class="btn-ghost">Log in</a>
-    <a href="https://span-hfintech.vercel.app/onboarding" class="btn-cta">Open an Account</a>
+    <a href="https://span-hfintech.vercel.app" class="btn-cta">Open an Account</a>
   </div>
   <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </header>
 
 <div class="mmenu" id="mmenu">
   <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#why" onclick="toggleMenu()">Why Span</a>
-  <a href="#testimonials" onclick="toggleMenu()">Members</a>
-  <a href="https://span-hfintech.vercel.app/onboarding" class="btn-cta">Open an Account</a>
+  <a href="#why" onclick="toggleMenu()">Why Span?</a>
+  <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
+  <a href="https://span-hfintech.vercel.app" class="btn-cta">Open an Account</a>
 </div>
-
-<!-- ═══════════════════════════════════════════
-     HERO — Health savings art as background
-═══════════════════════════════════════════ -->
-<section class="hero" id="home">
-
-  <!-- THE ART BACKGROUND — visible health savings illustration -->
-  <svg class="hero-art" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-
-    <!-- === LARGE COMPOSITION — right side === -->
-
-    <!-- Outer orbit rings -->
-    <circle cx="980" cy="450" r="360" stroke="#459DAF" stroke-width="1" opacity=".12"/>
-    <circle cx="980" cy="450" r="290" stroke="#459DAF" stroke-width="0.8" stroke-dasharray="6 10" opacity=".18"/>
-    <circle cx="980" cy="450" r="200" stroke="#00B4D0" stroke-width="1" opacity=".14"/>
-
-    <!-- === CENTRAL SHIELD — savings protection === -->
-    <path d="M980 260 L1080 300 L1080 430 C1080 490 980 540 980 540 C980 540 880 490 880 430 L880 300 Z"
-      fill="rgba(69,157,175,.08)" stroke="#459DAF" stroke-width="1.5" opacity=".5"/>
-    <!-- Shield cross — health -->
-    <rect x="966" y="360" width="28" height="80" rx="6" fill="rgba(69,157,175,.25)"/>
-    <rect x="946" y="380" width="68" height="28" rx="6" fill="rgba(69,157,175,.25)"/>
-    <!-- Naira in shield -->
-    <text x="980" y="410" font-family="Inter,sans-serif" font-size="22" font-weight="700" fill="#459DAF" text-anchor="middle" opacity=".4">₦</text>
-
-    <!-- === STETHOSCOPE — top right === -->
-    <path d="M1160 160 C1160 160 1140 180 1140 210 C1140 240 1160 252 1180 252 C1200 252 1220 240 1220 210 C1220 180 1200 160 1200 160"
-      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".4"/>
-    <path d="M1160 160 C1160 140 1155 120 1140 110 C1125 100 1100 105 1090 120 C1075 140 1080 165 1080 185"
-      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".4"/>
-    <path d="M1200 160 C1200 140 1205 120 1220 110 C1235 100 1260 105 1270 120 C1285 140 1280 165 1280 200"
-      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".4"/>
-    <path d="M1080 185 C1080 220 1100 260 1130 280 C1160 300 1180 300 1180 300"
-      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".35"/>
-    <path d="M1280 200 C1280 240 1265 270 1240 285 C1215 300 1180 300 1180 300"
-      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".35"/>
-    <line x1="1180" y1="300" x2="1180" y2="340" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".35"/>
-    <circle cx="1180" cy="348" r="8" fill="none" stroke="#459DAF" stroke-width="2" opacity=".4"/>
-    <circle cx="1180" cy="348" r="3" fill="#459DAF" opacity=".4"/>
-
-    <!-- === COIN STACK — top left area of art === -->
-    <ellipse cx="800" cy="290" rx="40" ry="11" fill="rgba(69,157,175,.18)" stroke="#459DAF" stroke-width="1.2" opacity=".5"/>
-    <ellipse cx="800" cy="270" rx="40" ry="11" fill="rgba(69,157,175,.15)" stroke="#459DAF" stroke-width="1.2" opacity=".5"/>
-    <rect x="760" y="270" width="80" height="20" fill="rgba(69,157,175,.12)" opacity=".5"/>
-    <ellipse cx="800" cy="250" rx="40" ry="11" fill="rgba(69,157,175,.22)" stroke="#459DAF" stroke-width="1.2" opacity=".6"/>
-    <ellipse cx="800" cy="230" rx="40" ry="11" fill="rgba(69,157,175,.18)" stroke="#459DAF" stroke-width="1.2" opacity=".5"/>
-    <rect x="760" y="230" width="80" height="20" fill="rgba(69,157,175,.1)" opacity=".5"/>
-    <ellipse cx="800" cy="210" rx="40" ry="11" fill="rgba(69,157,175,.3)" stroke="#459DAF" stroke-width="1.5" opacity=".65"/>
-    <!-- Naira on top coin -->
-    <text x="800" y="215" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#459DAF" text-anchor="middle" opacity=".55">₦</text>
-
-    <!-- === GROWING PLANT FROM COINS — savings growth === -->
-    <!-- Stem -->
-    <path d="M800 210 C800 195 800 175 800 155 C800 130 800 110 800 85"
-      stroke="#2d7f91" stroke-width="2.5" stroke-linecap="round" opacity=".45"/>
-    <!-- Left branch -->
-    <path d="M800 155 C800 155 778 145 765 128"
-      stroke="#2d7f91" stroke-width="2" stroke-linecap="round" opacity=".4"/>
-    <!-- Right branch -->
-    <path d="M800 135 C800 135 822 122 838 105"
-      stroke="#2d7f91" stroke-width="2" stroke-linecap="round" opacity=".4"/>
-    <!-- Leaves -->
-    <ellipse cx="758" cy="120" rx="14" ry="9" fill="rgba(69,157,175,.25)" stroke="#459DAF" stroke-width="1" opacity=".5" transform="rotate(-30 758 120)"/>
-    <ellipse cx="844" cy="97" rx="14" ry="9" fill="rgba(69,157,175,.25)" stroke="#459DAF" stroke-width="1" opacity=".5" transform="rotate(25 844 97)"/>
-    <!-- Top flower/circle -->
-    <circle cx="800" cy="75" r="16" fill="rgba(0,180,208,.15)" stroke="#00B4D0" stroke-width="1.5" opacity=".5"/>
-    <circle cx="800" cy="75" r="7" fill="rgba(0,180,208,.3)" opacity=".5"/>
-
-    <!-- === GROWTH CHART — bottom right === -->
-    <rect x="820" y="600" width="12" height="50" rx="4" fill="#459DAF" opacity=".35"/>
-    <rect x="840" y="575" width="12" height="75" rx="4" fill="#459DAF" opacity=".35"/>
-    <rect x="860" y="550" width="12" height="100" rx="4" fill="#459DAF" opacity=".4"/>
-    <rect x="880" y="520" width="12" height="130" rx="4" fill="#459DAF" opacity=".45"/>
-    <rect x="900" y="490" width="12" height="160" rx="4" fill="#00B4D0" opacity=".45"/>
-    <!-- Chart line -->
-    <polyline points="826,600 846,572 866,546 886,516 906,486" stroke="#00B4D0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".55"/>
-    <!-- Arrow at end -->
-    <path d="M906 486 L916 472 M916 472 L908 472 M916 472 L916 480" stroke="#00B4D0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
-    <!-- Axis lines -->
-    <line x1="810" y1="650" x2="930" y2="650" stroke="#459DAF" stroke-width="1" opacity=".25"/>
-    <line x1="810" y1="650" x2="810" y2="480" stroke="#459DAF" stroke-width="1" opacity=".25"/>
-
-    <!-- === WALLET — right side === -->
-    <rect x="1110" y="520" width="130" height="90" rx="14" fill="rgba(69,157,175,.1)" stroke="#459DAF" stroke-width="1.5" opacity=".45"/>
-    <line x1="1110" y1="550" x2="1240" y2="550" stroke="#459DAF" stroke-width="1" opacity=".3"/>
-    <rect x="1190" y="536" width="40" height="28" rx="8" fill="rgba(69,157,175,.2)" stroke="#459DAF" stroke-width="1" opacity=".4"/>
-    <circle cx="1210" cy="550" r="5" fill="rgba(69,157,175,.4)" opacity=".5"/>
-    <!-- Card lines -->
-    <line x1="1122" y1="562" x2="1178" y2="562" stroke="#459DAF" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>
-    <line x1="1122" y1="572" x2="1158" y2="572" stroke="#459DAF" stroke-width="1" stroke-linecap="round" opacity=".25"/>
-    <line x1="1122" y1="590" x2="1175" y2="590" stroke="#459DAF" stroke-width="1" stroke-linecap="round" opacity=".25"/>
-
-    <!-- === FAMILY SILHOUETTE — center composition === -->
-    <!-- Parent 1 -->
-    <circle cx="952" cy="420" r="14" fill="rgba(69,157,175,.18)" stroke="rgba(69,157,175,.4)" stroke-width="1"/>
-    <path d="M934 470 C934 452 942 444 952 444 C962 444 970 452 970 470" fill="rgba(69,157,175,.15)" stroke="rgba(69,157,175,.3)" stroke-width="1"/>
-    <!-- Parent 2 -->
-    <circle cx="1010" cy="424" r="13" fill="rgba(69,157,175,.15)" stroke="rgba(69,157,175,.35)" stroke-width="1"/>
-    <path d="M993 470 C993 453 1000 446 1010 446 C1020 446 1027 453 1027 470" fill="rgba(69,157,175,.12)" stroke="rgba(69,157,175,.28)" stroke-width="1"/>
-    <!-- Child -->
-    <circle cx="981" cy="448" r="9" fill="rgba(69,157,175,.22)" stroke="rgba(69,157,175,.45)" stroke-width="1"/>
-    <path d="M968 470 C968 460 974 456 981 456 C988 456 994 460 994 470" fill="rgba(69,157,175,.18)" stroke="rgba(69,157,175,.35)" stroke-width="1"/>
-    <!-- Connecting line under family -->
-    <line x1="920" y1="475" x2="1042" y2="475" stroke="rgba(69,157,175,.2)" stroke-width="1" stroke-dasharray="4 6"/>
-
-    <!-- === HEARTBEAT LINE — health indicator === -->
-    <polyline points="670,450 700,450 715,420 730,480 745,430 760,450 790,450 800,440 810,450 840,450"
-      stroke="#459DAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".3"/>
-
-    <!-- === SCATTERED ELEMENTS === -->
-    <!-- Small naira symbols -->
-    <text x="700" y="320" font-family="Inter,sans-serif" font-size="18" font-weight="600" fill="#459DAF" opacity=".2">₦</text>
-    <text x="1270" y="380" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#459DAF" opacity=".15">₦</text>
-    <text x="850" y="550" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#459DAF" opacity=".18">₦</text>
-    <text x="1100" y="470" font-family="Inter,sans-serif" font-size="16" font-weight="600" fill="#459DAF" opacity=".12">₦</text>
-
-    <!-- Small plus/cross health symbols -->
-    <line x1="720" y1="200" x2="720" y2="220" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".25"/>
-    <line x1="710" y1="210" x2="730" y2="210" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".25"/>
-    <line x1="1290" y1="560" x2="1290" y2="575" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".2"/>
-    <line x1="1283" y1="567" x2="1297" y2="567" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".2"/>
-    <line x1="1050" y1="210" x2="1050" y2="225" stroke="#459DAF" stroke-width="1.5" stroke-linecap="round" opacity=".2"/>
-    <line x1="1043" y1="217" x2="1057" y2="217" stroke="#459DAF" stroke-width="1.5" stroke-linecap="round" opacity=".2"/>
-
-    <!-- Floating dots constellation -->
-    <circle cx="680" cy="390" r="3" fill="#459DAF" opacity=".2"/>
-    <circle cx="700" cy="370" r="2" fill="#459DAF" opacity=".15"/>
-    <circle cx="720" cy="380" r="3.5" fill="#459DAF" opacity=".18"/>
-    <circle cx="740" cy="360" r="2" fill="#459DAF" opacity=".15"/>
-    <line x1="680" y1="390" x2="700" y2="370" stroke="#459DAF" stroke-width="0.8" opacity=".1"/>
-    <line x1="700" y1="370" x2="720" y2="380" stroke="#459DAF" stroke-width="0.8" opacity=".1"/>
-    <line x1="720" y1="380" x2="740" y2="360" stroke="#459DAF" stroke-width="0.8" opacity=".1"/>
-
-    <!-- Small circles scattered -->
-    <circle cx="660" cy="280" r="20" fill="none" stroke="#459DAF" stroke-width="1" opacity=".15"/>
-    <circle cx="1350" cy="400" r="25" fill="none" stroke="#459DAF" stroke-width="1" opacity=".12"/>
-    <circle cx="1300" cy="650" r="18" fill="rgba(69,157,175,.05)" stroke="#459DAF" stroke-width="1" opacity=".15"/>
-    <circle cx="750" cy="700" r="30" fill="none" stroke="#459DAF" stroke-width="1" stroke-dasharray="4 8" opacity=".12"/>
-
-    <!-- Pills/capsule -->
-    <rect x="1240" y="460" width="50" height="20" rx="10" fill="rgba(69,157,175,.1)" stroke="#459DAF" stroke-width="1" opacity=".3"/>
-    <line x1="1265" y1="460" x2="1265" y2="480" stroke="#459DAF" stroke-width="1" opacity=".25"/>
-    <rect x="1235" y="490" width="40" height="16" rx="8" fill="rgba(69,157,175,.08)" stroke="#459DAF" stroke-width="1" opacity=".25" transform="rotate(-15 1255 498)"/>
-
-    <!-- Hospital building outline — bottom -->
-    <rect x="1300" y="680" width="80" height="80" rx="4" fill="rgba(69,157,175,.05)" stroke="#459DAF" stroke-width="1" opacity=".2"/>
-    <rect x="1316" y="680" width="48" height="30" rx="2" fill="rgba(69,157,175,.08)" stroke="#459DAF" stroke-width="1" opacity=".18"/>
-    <!-- Windows -->
-    <rect x="1316" y="720" width="14" height="40" rx="2" fill="rgba(69,157,175,.1)" opacity=".2"/>
-    <rect x="1338" y="720" width="14" height="40" rx="2" fill="rgba(69,157,175,.1)" opacity=".2"/>
-    <rect x="1360" y="720" width="14" height="40" rx="2" fill="rgba(69,157,175,.1)" opacity=".2"/>
-    <!-- H cross on hospital -->
-    <line x1="1340" y1="688" x2="1340" y2="702" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".3"/>
-    <line x1="1333" y1="695" x2="1347" y2="695" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".3"/>
-
-    <!-- Trend arrow large — top area -->
-    <path d="M660 700 C700 660 760 620 820 560 C870 510 910 490 960 470"
-      stroke="#459DAF" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 8" fill="none" opacity=".18"/>
-
-  </svg>
-
-  <!-- Gradient overlay — keeps left text readable -->
-  <div class="hero-overlay"></div>
-
-  <!-- CONTENT -->
-  <div class="hero-content rv">
-    <div class="hero-badge"><span class="bdot"></span>Health Savings · Nigeria</div>
-    <h1>Save for your health.<br><em>Before you need it.</em></h1>
-    <p class="hero-sub">One platform. All your health savings needs. Trusted by individuals, families, and organisations across Nigeria.</p>
-    <div class="hero-btns">
-      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p">Open an Account <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#services" class="btn-o">Our Services</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hs"><div class="hs-v"><span>₦50k</span></div><div class="hs-l">Individual minimum</div></div>
-      <div class="hs"><div class="hs-v"><span>₦3,500</span></div><div class="hs-l">Telemedicine fee</div></div>
-      <div class="hs"><div class="hs-v"><span>0%</span></div><div class="hs-l">Riba · Halal</div></div>
-    </div>
-  </div>
-</section>
 
 <!-- MARQUEE -->
 <div class="strip">
@@ -490,6 +422,242 @@ footer{background:#060e11;padding:60px 5% 28px}
     <div class="si">Organisation Plans</div><div class="si">Family Coverage</div>
   </div>
 </div>
+
+<!-- ═══════════════════════════════════════════
+     HERO — Health savings art as background
+═══════════════════════════════════════════ -->
+<section class="hero" id="home">
+<!-- LEFT — text content -->
+<div class="hero-left">
+  <div class="hero-content rv">
+    <h1>Save for your health.<br><em>Before you need it.</em></h1>
+    <p class="hero-sub">One platform. All your health savings needs. Trusted by individuals, families, and organisations across Nigeria.</p>
+    <div class="hero-btns">
+      <a href="https://span-hfintech.vercel.app" class="btn-p">Open an Account <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#services" class="btn-o">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-v"><span>₦50k</span></div><div class="hs-l">Individual minimum</div></div>
+      <div class="hs"><div class="hs-v"><span>₦3,500</span></div><div class="hs-l">Telemedicine fee</div></div>
+      <div class="hs"><div class="hs-v"><span>0%</span></div><div class="hs-l">Riba · Halal</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- RIGHT — 3D isometric illustration -->
+<div class="hero-right">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="wave1" cx="80%" cy="20%" r="60%">
+        <stop offset="0%" stop-color="#459DAF" stop-opacity=".12"/>
+        <stop offset="100%" stop-color="#459DAF" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="wave2" cx="20%" cy="80%" r="50%">
+        <stop offset="0%" stop-color="#00B4D0" stop-opacity=".1"/>
+        <stop offset="100%" stop-color="#00B4D0" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <circle cx="580" cy="80" r="320" fill="url(#wave1)"/>
+    <circle cx="60" cy="620" r="260" fill="url(#wave2)"/>
+    <circle cx="500" cy="580" r="180" fill="rgba(69,157,175,.06)"/>
+  </svg>
+
+  <svg viewBox="0 0 600 680" fill="none" xmlns="http://www.w3.org/2000/svg"
+    style="width:100%;max-width:580px;height:auto;position:relative;z-index:2">
+    <defs>
+      <linearGradient id="platTop" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#e8f7fa"/>
+        <stop offset="100%" stop-color="#c8eaf0"/>
+      </linearGradient>
+      <linearGradient id="platLeft" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#aad8e4"/>
+        <stop offset="100%" stop-color="#7bbfcf"/>
+      </linearGradient>
+      <linearGradient id="platRight" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c8eaf0"/>
+        <stop offset="100%" stop-color="#98cdd9"/>
+      </linearGradient>
+      <linearGradient id="figBody" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2d7f91"/>
+        <stop offset="100%" stop-color="#459DAF"/>
+      </linearGradient>
+      <linearGradient id="figLeg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0a2a35"/>
+        <stop offset="100%" stop-color="#0d3a48"/>
+      </linearGradient>
+      <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#edf8fb"/>
+      </linearGradient>
+      <linearGradient id="cubeTopT" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#5bbfcf"/>
+        <stop offset="100%" stop-color="#459DAF"/>
+      </linearGradient>
+      <linearGradient id="cubeLT" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2d7f91"/>
+        <stop offset="100%" stop-color="#1a5566"/>
+      </linearGradient>
+      <linearGradient id="cubeRT" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#459DAF"/>
+        <stop offset="100%" stop-color="#2d7f91"/>
+      </linearGradient>
+      <linearGradient id="cubeTopC" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#FF8A75"/>
+        <stop offset="100%" stop-color="#FF6B52"/>
+      </linearGradient>
+      <linearGradient id="cubeLCo" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#cc4433"/>
+        <stop offset="100%" stop-color="#aa3322"/>
+      </linearGradient>
+      <linearGradient id="cubeTopG" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#FFD060"/>
+        <stop offset="100%" stop-color="#F5A623"/>
+      </linearGradient>
+      <linearGradient id="cubeLG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c47a00"/>
+        <stop offset="100%" stop-color="#a06200"/>
+      </linearGradient>
+      <filter id="cardShadow">
+        <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#459DAF" flood-opacity=".18"/>
+      </filter>
+      <filter id="figShadow">
+        <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#459DAF" flood-opacity=".25"/>
+      </filter>
+      <filter id="glow2">
+        <feGaussianBlur stdDeviation="5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- PLATFORM -->
+    <polygon points="300,390 460,480 300,570 140,480" fill="url(#platTop)" stroke="#b8dce6" stroke-width="1"/>
+    <polygon points="140,480 140,536 300,626 300,570" fill="url(#platLeft)"/>
+    <polygon points="300,570 460,480 460,536 300,626" fill="url(#platRight)"/>
+    <line x1="220" y1="435" x2="380" y2="525" stroke="#459DAF" stroke-width=".6" opacity=".3"/>
+    <line x1="260" y1="413" x2="420" y2="503" stroke="#459DAF" stroke-width=".6" opacity=".2"/>
+    <line x1="180" y1="457" x2="340" y2="547" stroke="#459DAF" stroke-width=".6" opacity=".2"/>
+    <line x1="220" y1="480" x2="380" y2="390" stroke="#459DAF" stroke-width=".6" opacity=".3"/>
+    <line x1="260" y1="503" x2="420" y2="413" stroke="#459DAF" stroke-width=".6" opacity=".2"/>
+    <line x1="180" y1="457" x2="340" y2="367" stroke="#459DAF" stroke-width=".6" opacity=".2"/>
+    <ellipse cx="310" cy="490" rx="50" ry="18" fill="rgba(69,157,175,.2)"/>
+
+    <!-- FIGURE -->
+   <!-- GROWING MONEY CHART — 3D bars rising on platform -->
+
+<!-- Bar 1 — shortest, deep teal -->
+<g style="animation:bar1 1s cubic-bezier(.34,1.56,.64,1) forwards 0.8s;transform:scaleY(0);transform-origin:300px 465px">
+  <!-- Bar top face -->
+  <polygon points="190,420 230,398 270,420 230,442" fill="#00E5FF"/>
+  <!-- Bar left face -->
+  <polygon points="190,420 190,465 230,487 230,442" fill="#0099B8"/>
+  <!-- Bar right face -->
+  <polygon points="230,442 270,420 270,465 230,487" fill="#00C8E8"/>
+  <!-- Naira on bar -->
+  <text x="230" y="415" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#020C12" text-anchor="middle" opacity=".8">₦</text>
+</g>
+
+<!-- Bar 2 — medium, vivid coral -->
+<g style="animation:bar1 1s cubic-bezier(.34,1.56,.64,1) forwards 1.1s;transform:scaleY(0);transform-origin:300px 465px">
+  <polygon points="240,370 280,348 320,370 280,392" fill="#FF6B2B"/>
+  <polygon points="240,370 240,465 280,487 280,392" fill="#CC2200"/>
+  <polygon points="280,392 320,370 320,465 280,487" fill="#FF3D00"/>
+  <text x="280" y="365" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle" opacity=".9">₦</text>
+</g>
+
+<!-- Bar 3 — tall, electric gold -->
+<g style="animation:bar1 1s cubic-bezier(.34,1.56,.64,1) forwards 1.4s;transform:scaleY(0);transform-origin:300px 465px">
+  <polygon points="290,310 330,288 370,310 330,332" fill="#FFD54F"/>
+  <polygon points="290,310 290,465 330,487 330,332" fill="#FF8F00"/>
+  <polygon points="330,332 370,310 370,465 330,487" fill="#FFB300"/>
+  <text x="330" y="305" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#020C12" text-anchor="middle" opacity=".9">₦</text>
+</g>
+
+<!-- Bar 4 — tallest, vivid lime green growth -->
+<g style="animation:bar1 1s cubic-bezier(.34,1.56,.64,1) forwards 1.7s;transform:scaleY(0);transform-origin:300px 465px">
+  <polygon points="340,240 380,218 420,240 380,262" fill="#69FF9A" filter="url(#glow2)"/>
+  <polygon points="340,240 340,465 380,487 380,262" fill="#00A845"/>
+  <polygon points="380,262 420,240 420,465 380,487" fill="#00D460"/>
+  <text x="380" y="234" font-family="Inter,sans-serif" font-size="14" font-weight="900" fill="#020C12" text-anchor="middle" opacity=".95">₦</text>
+</g>
+
+<!-- Trend arrow rising above tallest bar -->
+<g style="animation:fade-in-up 1s ease forwards 2.4s;opacity:0" filter="url(#glow2)">
+  <polyline points="195,435 245,385 295,328 345,265 385,210"
+    stroke="#00E5FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="195" cy="435" r="5" fill="#00E5FF"/>
+  <circle cx="245" cy="385" r="5" fill="#00E5FF"/>
+  <circle cx="295" cy="328" r="5" fill="#00E5FF"/>
+  <circle cx="345" cy="265" r="5" fill="#00E5FF"/>
+  <circle cx="385" cy="210" r="7" fill="#00E5FF" filter="url(#glow2)"/>
+  <!-- Arrow tip -->
+  <path d="M385 210 L400 190 M400 190 L390 190 M400 190 L400 200"
+    stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<!-- Percentage growth label floating above -->
+<g style="animation:float-up 3s ease-in-out infinite 2s;opacity:0;animation-fill-mode:forwards" filter="url(#cardShadow)">
+  <rect x="330" y="155" width="100" height="44" rx="12" fill="#020C12" stroke="#00E5FF" stroke-width="1.5"/>
+  <text x="380" y="174" font-family="Inter,sans-serif" font-size="9" font-weight="600" fill="#00C8E8" text-anchor="middle" letter-spacing=".08em">GROWTH</text>
+  <text x="380" y="192" font-family="Inter,sans-serif" font-size="16" font-weight="900" fill="#69FF9A" text-anchor="middle">+28%</text>
+</g>
+
+<!-- Rising coins above bars -->
+<text style="animation:naira-drift 3s ease-in-out infinite" x="170" y="360" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="#00E5FF" opacity=".6" filter="url(#glow2)">₦</text>
+<text style="animation:naira-drift 4s ease-in-out infinite 1s" x="220" y="300" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#FFB300" opacity=".55" filter="url(#glow2)">₦</text>
+<text style="animation:naira-drift 3.5s ease-in-out infinite 0.5s" x="440" y="330" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#69FF9A" opacity=".5" filter="url(#glow2)">₦</text>
+<text style="animation:naira-drift 5s ease-in-out infinite 2s" x="130" y="280" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#FF6B2B" opacity=".45">₦</text>
+
+    <!-- CARD 1 — Health Wallet -->
+
+
+    <!-- CARD 2 — Savings Growth -->
+    
+    <!-- CARD 3 — Telemedicine -->
+
+    <!-- 3D CUBES -->
+    <g style="animation:float-up 3s ease-in-out infinite 0.5s">
+      <polygon points="80,360 110,344 140,360 110,376" fill="url(#cubeTopT)"/>
+      <polygon points="80,360 80,390 110,406 110,376" fill="url(#cubeLT)"/>
+      <polygon points="110,376 140,360 140,390 110,406" fill="url(#cubeRT)"/>
+    </g>
+    <g style="animation:float-down 3.5s ease-in-out infinite 1s">
+      <polygon points="490,82 514,70 538,82 514,94" fill="url(#cubeTopC)"/>
+      <polygon points="490,82 490,104 514,116 514,94" fill="url(#cubeLCo)"/>
+      <polygon points="514,94 538,82 538,104 514,116" fill="#dd4433"/>
+    </g>
+    <g style="animation:float-up 4.5s ease-in-out infinite 2s">
+      <polygon points="60,540 84,528 108,540 84,552" fill="url(#cubeTopG)"/>
+      <polygon points="60,540 60,558 84,570 84,552" fill="url(#cubeLG)"/>
+      <polygon points="84,552 108,540 108,558 84,570" fill="#d4860a"/>
+    </g>
+    <g style="animation:float-down 2.8s ease-in-out infinite 1.5s">
+      <polygon points="170,120 190,110 210,120 190,130" fill="#5bbfcf" opacity=".8"/>
+      <polygon points="170,120 170,136 190,146 190,130" fill="#2d7f91" opacity=".8"/>
+      <polygon points="190,130 210,120 210,136 190,146" fill="#459DAF" opacity=".8"/>
+    </g>
+
+    <!-- HEALTH CROSS -->
+    <g style="animation:float-up 4s ease-in-out infinite 0.8s" filter="url(#glow2)">
+      <rect x="358" y="115" width="14" height="44" rx="5" fill="#459DAF" opacity=".85"/>
+      <rect x="340" y="133" width="50" height="14" rx="5" fill="#459DAF" opacity=".85"/>
+    </g>
+
+    <!-- FLOATING NAIRA -->
+    <text style="animation:naira-drift 5s ease-in-out infinite" x="488" y="340" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#459DAF" opacity=".35" filter="url(#glow2)">₦</text>
+    <text style="animation:naira-drift 6s ease-in-out infinite 1.5s" x="58" y="430" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#00B4D0" opacity=".3">₦</text>
+
+    <!-- HEARTBEAT -->
+    <polyline class="art-heartbeat" points="60,635 90,635 106,608 124,668 140,618 156,635 194,635 206,626 218,635 260,635" stroke="#459DAF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow2)" opacity=".7"/>
+
+    <!-- DOTS -->
+    <circle cx="370" cy="580" r="3" fill="#459DAF" opacity=".3"/>
+    <circle cx="390" cy="564" r="2" fill="#00B4D0" opacity=".25"/>
+    <circle cx="412" cy="574" r="2.5" fill="#459DAF" opacity=".28"/>
+    <line x1="370" y1="580" x2="390" y2="564" stroke="#459DAF" stroke-width=".8" opacity=".15"/>
+    <line x1="390" y1="564" x2="412" y2="574" stroke="#459DAF" stroke-width=".8" opacity=".15"/>
+  </svg>
+</div>
+</section>
 
 <!-- STATEMENT — teal background with coin art sketch overlay -->
 <section class="statement">
@@ -519,7 +687,7 @@ footer{background:#060e11;padding:60px 5% 28px}
         <p>Nigeria is in the middle of a quiet health crisis. Hypertension, diabetes, and kidney disease are increasingly affecting working Nigerians — many undiagnosed, none financially prepared.</p>
         <p>A dedicated health savings account that grows while you wait and pays when you need care. Built on transparency, ethics, and access for every Nigerian.</p>
       </div>
-      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-cw" style="display:inline-flex">Open an Account →</a>
+      <a href="https://span-hfintech.vercel.app" class="btn-cw" style="display:inline-flex">Open an Account →</a>
     </div>
   </div>
 </section>
@@ -528,32 +696,8 @@ footer{background:#060e11;padding:60px 5% 28px}
 <section class="split" id="services">
   <div class="split-inner rv">
     <div class="art-tile at1">
-      <div class="tile-grid"></div>
-      <div class="tile-art">
-        <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
-          <!-- Wallet -->
-          <rect x="40" y="80" width="200" height="140" rx="20" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
-          <line x1="40" y1="110" x2="240" y2="110" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
-          <!-- Card slot -->
-          <rect x="170" y="95" width="55" height="35" rx="10" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
-          <circle cx="197" cy="112" r="6" fill="rgba(255,255,255,.35)"/>
-          <!-- Balance -->
-          <text x="140" y="165" font-family="Inter,sans-serif" font-size="26" font-weight="700" fill="white" text-anchor="middle" opacity=".9">₦120,500</text>
-          <text x="140" y="185" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,.5)" text-anchor="middle" letter-spacing="1.5">HEALTH WALLET</text>
-          <!-- Growth indicator -->
-          <polyline points="60,210 80,200 100,205 120,190 140,182 160,170 180,165 200,155" stroke="#A8E6F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <!-- Heart top -->
-          <path d="M140 55 C140 55 128 44 120 44 C112 44 106 50 106 57 C106 66 140 78 140 78 C140 78 174 66 174 57 C174 50 168 44 160 44 C152 44 140 55 140 55Z" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.45)" stroke-width="1.5"/>
-          <!-- Cross in heart -->
-          <line x1="140" y1="52" x2="140" y2="64" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
-          <line x1="134" y1="58" x2="146" y2="58" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
-          <!-- Stacked coins below -->
-          <ellipse cx="140" cy="238" rx="36" ry="10" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
-          <ellipse cx="140" cy="228" rx="36" ry="10" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
-          <ellipse cx="140" cy="218" rx="36" ry="10" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.38)" stroke-width="1.2"/>
-          <text x="140" y="222" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,.6)" text-anchor="middle">₦</text>
-        </svg>
-      </div>
+      <img src="img/Pic1.jpg" alt="Health savings member" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,14,20,.7) 0%,transparent 60%)"></div>
       <div class="tile-card">
         <div><div class="tc-v">₦50,000</div><div class="tc-l">Individual minimum</div></div>
         <div class="tc-b">Active Day 1</div>
@@ -569,7 +713,7 @@ footer{background:#060e11;padding:60px 5% 28px}
         <li>50% invested in Konooz halal fund — returns quarterly</li>
         <li>Span pays hospitals directly — no forms needed</li>
       </ul>
-      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p" style="width:fit-content">Open an Account →</a>
+      <a href="https://span-hfintech.vercel.app" class="btn-p" style="width:fit-content">Open an Account →</a>
     </div>
   </div>
 </section>
@@ -578,39 +722,8 @@ footer{background:#060e11;padding:60px 5% 28px}
 <section class="split alt">
   <div class="split-inner rev rv">
     <div class="art-tile at2">
-      <div class="tile-grid"></div>
-      <div class="tile-art">
-        <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
-          <!-- Phone frame -->
-          <rect x="75" y="30" width="130" height="220" rx="20" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
-          <rect x="85" y="46" width="110" height="188" rx="12" fill="rgba(255,255,255,.05)"/>
-          <!-- Status bar -->
-          <rect x="90" y="52" width="100" height="6" rx="3" fill="rgba(69,157,175,.4)"/>
-          <circle cx="185" cy="55" r="5" fill="#00B4D0"/>
-          <!-- Doctor avatar -->
-          <circle cx="140" cy="115" r="34" fill="rgba(69,157,175,.2)" stroke="rgba(69,157,175,.45)" stroke-width="1.5"/>
-          <circle cx="140" cy="105" r="13" fill="rgba(255,255,255,.3)"/>
-          <path d="M116 136 C116 126 127 119 140 119 C153 119 164 126 164 136" fill="rgba(255,255,255,.2)"/>
-          <!-- Stethoscope on doctor -->
-          <path d="M128 108 C126 112 126 116 128 118 C130 120 134 120 136 118" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-          <!-- Call controls -->
-          <circle cx="112" cy="210" r="10" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
-          <circle cx="140" cy="210" r="13" fill="#FF6B52"/>
-          <circle cx="168" cy="210" r="10" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
-          <!-- Signal waves -->
-          <path d="M100 72 C100 68 104 65 108 65" stroke="#00B4D0" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
-          <path d="M96 76 C96 68 103 62 112 62" stroke="#00B4D0" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".45"/>
-          <!-- Delivery box floating -->
-          <rect x="175" y="140" width="68" height="52" rx="10" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
-          <line x1="175" y1="157" x2="243" y2="157" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
-          <text x="209" y="152" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(255,255,255,.5)" text-anchor="middle" letter-spacing="1">FREE</text>
-          <text x="209" y="171" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,.7)" text-anchor="middle" font-weight="600">Delivery</text>
-          <!-- Pills -->
-          <rect x="176" y="200" width="38" height="14" rx="7" fill="rgba(69,157,175,.25)" stroke="rgba(69,157,175,.4)" stroke-width="1"/>
-          <line x1="195" y1="200" x2="195" y2="214" stroke="rgba(69,157,175,.4)" stroke-width="1"/>
-          <rect x="220" y="205" width="30" height="12" rx="6" fill="rgba(69,157,175,.2)" stroke="rgba(69,157,175,.35)" stroke-width="1" transform="rotate(-15 235 211)"/>
-        </svg>
-      </div>
+      <img src="img/Pic2.jpg" alt="Telemedicine consultation" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,14,20,.7) 0%,transparent 60%)"></div>
       <div class="tile-card">
         <div><div class="tc-v">₦3,500</div><div class="tc-l">Flat rate · Free drug delivery</div></div>
         <div class="tc-b">24/7</div>
@@ -626,7 +739,7 @@ footer{background:#060e11;padding:60px 5% 28px}
         <li>MDCN-registered Nigerian doctors</li>
         <li>24/7 access — no appointment booking needed</li>
       </ul>
-      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p" style="width:fit-content">Start a Consultation →</a>
+      <a href="https://span-hfintech.vercel.app" class="btn-p" style="width:fit-content">Start a Consultation →</a>
     </div>
   </div>
 </section>
@@ -635,42 +748,8 @@ footer{background:#060e11;padding:60px 5% 28px}
 <section class="split">
   <div class="split-inner rv">
     <div class="art-tile at3">
-      <div class="tile-grid"></div>
-      <div class="tile-art">
-        <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
-          <!-- Large umbrella — family protection -->
-          <path d="M60 140 C60 95 96 65 140 65 C184 65 220 95 220 140" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
-          <line x1="140" y1="65" x2="140" y2="42" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/>
-          <path d="M140 42 L140 36" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="140" cy="32" r="6" fill="rgba(255,255,255,.3)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
-          <!-- Shield badge on umbrella -->
-          <path d="M126 40 L140 34 L154 40 L154 52 C154 58 140 63 140 63 C140 63 126 58 126 52Z" fill="rgba(255,255,255,.25)" stroke="rgba(255,255,255,.5)" stroke-width="1"/>
-          <!-- Cross in shield -->
-          <line x1="140" y1="42" x2="140" y2="56" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
-          <line x1="133" y1="49" x2="147" y2="49" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
-          <!-- Family group -->
-          <!-- Father -->
-          <circle cx="112" cy="160" r="16" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
-          <path d="M92 205 C92 185 101 177 112 177 C123 177 132 185 132 205" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
-          <!-- Mother -->
-          <circle cx="168" cy="163" r="15" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.38)" stroke-width="1.2"/>
-          <path d="M149 205 C149 186 157 179 168 179 C179 179 187 186 187 205" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.26)" stroke-width="1"/>
-          <!-- Child -->
-          <circle cx="140" cy="182" r="11" fill="rgba(255,255,255,.25)" stroke="rgba(255,255,255,.45)" stroke-width="1.2"/>
-          <path d="M126 210 C126 200 132 195 140 195 C148 195 154 200 154 210" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.32)" stroke-width="1"/>
-          <!-- Organisation tags below -->
-          <rect x="46" y="222" width="66" height="20" rx="10" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
-          <text x="79" y="236" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,.75)" text-anchor="middle">families</text>
-          <rect x="120" y="222" width="80" height="20" rx="10" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
-          <text x="160" y="236" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,.7)" text-anchor="middle">organisations</text>
-          <rect x="208" y="222" width="60" height="20" rx="10" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
-          <text x="238" y="236" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,.7)" text-anchor="middle">schools</text>
-          <!-- Growth dots -->
-          <circle cx="84" cy="132" r="3" fill="rgba(255,255,255,.35)"/>
-          <circle cx="196" cy="128" r="3" fill="rgba(255,255,255,.35)"/>
-          <circle cx="140" cy="118" r="4" fill="rgba(255,255,255,.45)"/>
-        </svg>
-      </div>
+      <img src="img/Pic3.jpg" alt="Family coverage" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,14,20,.7) 0%,transparent 60%)"></div>
       <div class="tile-card">
         <div><div class="tc-v">₦100,000</div><div class="tc-l">Family or organisation minimum</div></div>
         <div class="tc-b">48hr Setup</div>
@@ -686,7 +765,7 @@ footer{background:#060e11;padding:60px 5% 28px}
         <li>Group plans for schools, SMEs, and agencies</li>
         <li>Team setup completed within 48 hours</li>
       </ul>
-      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p" style="width:fit-content">Get a Team Plan →</a>
+      <a href="https://span-hfintech.vercel.app" class="btn-p" style="width:fit-content">Get a Team Plan →</a>
     </div>
   </div>
 </section>
@@ -775,7 +854,7 @@ footer{background:#060e11;padding:60px 5% 28px}
   <div class="team-box rv">
     <h3>Enrolling your team or organisation?</h3>
     <p>Group plans for schools, SMEs, and government agencies. We set your team up within 48 hours.</p>
-    <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p" style="display:inline-flex">Get a Team Plan →</a>
+    <a href="https://span-hfintech.vercel.app" class="btn-p" style="display:inline-flex">Get a Team Plan →</a>
   </div>
 </section>
 
@@ -837,17 +916,6 @@ footer{background:#060e11;padding:60px 5% 28px}
   </div>
 </section>
 
-<!-- PARTNERS -->
-<section class="partners rv">
-  <div class="p-lbl">Trusted Partners</div>
-  <div class="p-row">
-    <div class="p-item"><img src="log.png" alt="Windex" onerror="this.outerHTML='Windex'"></div>
-    <div class="p-item"><img src="amashpay black.png" alt="AMASHAPAY" onerror="this.outerHTML='AMASHAPAY'"></div>
-    <div class="p-item"><img src="BAC.jpg" alt="Boldage Consult" onerror="this.outerHTML='Boldage Consult'"></div>
-    <div class="p-item"><img src="Konooz.png" alt="Konooz Investment" onerror="this.outerHTML='Konooz Investment'"></div>
-  </div>
-</section>
-
 <!-- CTA — teal with coin art background -->
 <section class="cta">
   <svg class="cta-art" viewBox="0 0 1200 400" fill="none" preserveAspectRatio="xMidYMid slice">
@@ -871,7 +939,7 @@ footer{background:#060e11;padding:60px 5% 28px}
   <h2 class="rv">Start saving for your health today.</h2>
   <p class="rv d1">Open your account in minutes. Active from day one. No waiting period.</p>
   <div class="cta-btns rv d2">
-    <a href="https://span-hfintech.vercel.app/onboarding" class="btn-cw">Open an Account <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="https://span-hfintech.vercel.app" class="btn-cw">Open an Account <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     <a href="tel:08036102499" class="btn-co">Call Us · 08036102499</a>
   </div>
 </section>
@@ -881,8 +949,7 @@ footer{background:#060e11;padding:60px 5% 28px}
   <div class="f-grid">
     <div>
       <div class="f-brand">
-        <svg width="26" height="26" viewBox="0 0 120 120" fill="none"><polygon points="28,14 82,14 70,44 16,44" fill="#0B6577"/><path d="M70,44 C90,44 96,58 82,68 C68,78 24,72 24,86" stroke="#459DAF" stroke-width="11" stroke-linecap="round" fill="none"/><polygon points="38,76 92,76 80,106 26,106" fill="#459DAF"/></svg>
-        Span Healthcare
+        <img src="img/Asset 1.png" alt="Span Healthcare" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1)">
       </div>
       <p class="f-desc">A health savings and telemedicine platform reimagining healthcare financing for Nigerians.</p>
     </div>
@@ -899,7 +966,7 @@ footer{background:#060e11;padding:60px 5% 28px}
     <div class="fc">
       <h4>Company</h4>
       <ul>
-        <li><a href="https://span-hfintech.vercel.app/onboarding">Open an Account</a></li>
+        <li><a href="https://span-hfintech.vercel.app">Open an Account</a></li>
         <li><a href="#">Partner With Us</a></li>
         <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms of Use</a></li>
