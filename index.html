@@ -15,20 +15,15 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --teal:#00C8E8;
-  --teal-d:#0099B8;
-  --teal-l:#33D6F0;
-  --teal-v:#00E5FF;
-  --teal-xl:#99EEFF;
-  --coral:#FF3D00;
-  --navy:#020C12;
-  --gold:#FFB300;
-  --white:#ffffff;
-  --cream:#E8FAFD;
-  --text:#020C12;
-  --mid:#006880;
-  --light:#00A8C8;
-  --border:#00C8E8;
+  --teal:#2DB8D4;
+--teal-d:#1A96B0;
+--teal-l:#4DCDE6;
+--teal-v:#00B4D0;
+--teal-xl:#A8E6F0;
+--navy:#020C12;
+--mid:#1A7A90;
+--light:#3AACBE;
+--border:#2DB8D4;
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
@@ -106,7 +101,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 .btn-o{padding:13px 24px;background:rgba(255,255,255,.9);color:var(--navy);border-radius:9px;font-size:.9rem;font-weight:500;text-decoration:none;border:1.5px solid var(--border);font-family:'DM Sans',sans-serif;transition:all .22s;backdrop-filter:blur(8px)}
 .btn-o:hover{border-color:var(--teal);color:var(--teal)}
 .hero-stats{display:flex;gap:2rem;padding-top:2rem;border-top:1px solid rgba(69,157,175,.2);flex-wrap:wrap;justify-content:flex-start}
-.hs{}.hs-v{font-family:'Inter',sans-serif;font-size:1.6rem;font-weight:700;color:var(--navy);line-height:1;letter-spacing:-.02em}
+.hs-v{font-family:'Inter',sans-serif;font-size:1.6rem;font-weight:700;color:var(--navy);line-height:1;letter-spacing:-.02em}
 .hs-v span{color:var(--teal)}
 .hs-l{font-size:.68rem;color:var(--light);text-transform:uppercase;letter-spacing:.07em;margin-top:4px;font-family:'Inter',sans-serif}
 
@@ -224,7 +219,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 .tc-role{font-size:.7rem;color:var(--light);margin-top:3px}
 
 /* ── CLARITY ── */
-.clarity{background:var(--navy);padding:96px 5%;position:relative;overflow:hidden}
+.clarity{background:var(--navy);padding:96px 5% 60px;position:relative;overflow:hidden}
 .clarity::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(69,157,175,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(69,157,175,.07) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
 .cl-head{text-align:center;margin-bottom:3rem;position:relative;z-index:1}
 .cl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;position:relative;z-index:1}
@@ -249,17 +244,25 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 .p-item:hover img{opacity:.9}
 
 /* ── CTA ── */
-.cta{background:var(--teal);padding:100px 5%;text-align:center;position:relative;overflow:hidden}
-.cta-art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.1}
-.cta h2{position:relative;z-index:1;font-family:'Inter',sans-serif;font-size:clamp(1.8rem,4.5vw,3.6rem);font-weight:700;color:#fff;letter-spacing:-.03em;max-width:600px;margin:0 auto .9rem;line-height:1.06}
-.cta > p{position:relative;z-index:1;font-size:.95rem;color:rgba(255,255,255,.65);max-width:380px;margin:0 auto 2.6rem;line-height:1.82}
-.cta-btns{position:relative;z-index:1;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.btn-co{padding:13px 26px;background:transparent;color:rgba(255,255,255,.85);border-radius:9px;font-size:.9rem;font-weight:500;text-decoration:none;border:1.5px solid rgba(255,255,255,.3);font-family:'DM Sans',sans-serif;transition:all .22s}
-.btn-co:hover{border-color:#fff;color:#fff}
+.cta{background:#020C12;padding:90px 5%;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(45,184,212,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(45,184,212,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.cta::after{content:'';position:absolute;bottom:-80px;left:-80px;width:280px;height:280px;border-radius:50%;background:rgba(45,184,212,.06);pointer-events:none}
+.cta-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;z-index:1}
+.cta-counters{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.c-box{padding:1.6rem 1.4rem;border:0.5px solid rgba(45,184,212,.2);border-radius:12px;background:rgba(45,184,212,.05)}
+.c-val{font-size:3.4rem;font-weight:700;color:var(--teal);line-height:1;letter-spacing:-.03em;font-family:'Inter',sans-serif}
+.c-lbl{font-size:.68rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-top:8px;line-height:1.6}
+.cta-right{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem}
+.halal-tag{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;background:rgba(45,184,212,.1);border:0.5px solid rgba(45,184,212,.3);font-size:.65rem;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;font-family:'Inter',sans-serif}
+.hdot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite;flex-shrink:0}
+.cta-h{font-family:'Inter',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-.025em;margin:0}
+.cta-h em{font-style:normal;color:var(--teal)}
+.cta-sub{font-size:.9rem;color:rgba(255,255,255,.4);line-height:1.8;max-width:320px;margin:0}
 
 /* ── FOOTER ── */
 footer{
   background:#060e11;padding:60px 5% 28px;
+  border-top:3px solid #459DAF;
   --teal:#459DAF;
   --teal-d:#2d7f91;
   --teal-l:#5bbfcf;
@@ -269,13 +272,13 @@ footer{
 }
 .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:2.8rem;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
 .f-brand{font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--teal-xl);display:flex;align-items:center;gap:9px}
-.f-desc{font-size:.75rem;color:rgba(255,255,255,.28);line-height:1.88;max-width:220px;margin-top:12px;font-family:'DM Sans',sans-serif}
-.fc h4{font-family:'Inter',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:16px}
+.f-desc{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.88;max-width:220px;margin-top:12px;font-family:'DM Sans',sans-serif}
+.fc h4{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px}
 .fc ul{list-style:none}
 .fc li{margin-bottom:9px}
-.fc a{font-size:.75rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;font-family:'DM Sans',sans-serif}
+.fc a{font-size:.85rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;font-family:'DM Sans',sans-serif}
 .fc a:hover{color:var(--teal-xl)}
-.f-contact{font-size:.73rem;color:rgba(255,255,255,.34);line-height:2.1;font-family:'DM Sans',sans-serif}
+.f-contact{font-size:.84rem;color:rgba(255,255,255,.65);line-height:2.1;font-family:'DM Sans',sans-serif}
 .f-bot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:1rem}
 .f-bot p{font-size:.64rem;color:rgba(255,255,255,.55);font-family:'DM Sans',sans-serif}
 .f-halal{font-size:.62rem;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif}
@@ -414,11 +417,11 @@ footer{
   <div class="strip-track">
     <div class="si">Health Savings Wallet</div><div class="si">Telemedicine ₦3,500</div>
     <div class="si">Free Drug Delivery</div><div class="si">Halal Investment Returns</div>
-    <div class="si">No Waiting Period</div><div class="si">50+ Providers</div>
+    <div class="si">No Waiting Period</div><div class="si">100+ Providers</div>
     <div class="si">Organisation Plans</div><div class="si">Family Coverage</div>
     <div class="si">Health Savings Wallet</div><div class="si">Telemedicine ₦3,500</div>
     <div class="si">Free Drug Delivery</div><div class="si">Halal Investment Returns</div>
-    <div class="si">No Waiting Period</div><div class="si">50+ Providers</div>
+    <div class="si">No Waiting Period</div><div class="si">100+ Providers</div>
     <div class="si">Organisation Plans</div><div class="si">Family Coverage</div>
   </div>
 </div>
@@ -887,7 +890,7 @@ footer{
 <section class="clarity">
   <div class="cl-head rv">
     <div class="sec-lbl sec-lbl-w" style="display:flex;justify-content:center">Clarity</div>
-    <h2 style="font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;letter-spacing:-.025em;color:#fff;max-width:560px;margin:0 auto .8rem;text-align:center;line-height:1.1">Span is not health insurance.<br><span style="color:var(--teal-xl)">It is something better.</span></h2>
+    <h2 style="font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;letter-spacing:-.025em;color:#fff;max-width:560px;margin:0 auto .8rem;text-align:center;line-height:1.1">Span offers a designated Health Savings Account (HSA) built for individuals and families.<br><span style="color:var(--teal-xl)">It is something better.</span></h2>
     <p style="font-size:.93rem;color:rgba(255,255,255,.45);max-width:420px;margin:0 auto;text-align:center;line-height:1.88">Your own money. Always accessible. Always growing. No claims. No rejection.</p>
   </div>
   <div class="cl-grid rv d1">
@@ -918,29 +921,23 @@ footer{
 
 <!-- CTA — teal with coin art background -->
 <section class="cta">
-  <svg class="cta-art" viewBox="0 0 1200 400" fill="none" preserveAspectRatio="xMidYMid slice">
-    <!-- Scattered circles -->
-    <circle cx="100" cy="200" r="80" stroke="white" stroke-width="2" opacity=".5"/>
-    <circle cx="100" cy="200" r="55" stroke="white" stroke-width="1.5" stroke-dasharray="5 8" opacity=".4"/>
-    <!-- Coins -->
-    <ellipse cx="100" cy="200" rx="30" ry="8" fill="white" opacity=".3"/>
-    <text x="100" y="204" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" opacity=".6">₦</text>
-    <!-- Right side art -->
-    <circle cx="1100" cy="200" r="90" stroke="white" stroke-width="1.5" opacity=".3"/>
-    <path d="M1100 130 L1100 270" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".4"/>
-    <path d="M1030 200 L1170 200" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".4"/>
-    <!-- Growth line -->
-    <path d="M200 350 C350 280 500 200 700 140 C900 80 1000 60 1000 60" stroke="white" stroke-width="2" stroke-dasharray="6 10" stroke-linecap="round" opacity=".4"/>
-    <!-- Star dots -->
-    <circle cx="400" cy="80" r="4" fill="white" opacity=".3"/>
-    <circle cx="700" cy="50" r="3" fill="white" opacity=".25"/>
-    <circle cx="900" cy="70" r="4" fill="white" opacity=".3"/>
-  </svg>
-  <h2 class="rv">Start saving for your health today.</h2>
-  <p class="rv d1">Open your account in minutes. Active from day one. No waiting period.</p>
-  <div class="cta-btns rv d2">
-    <a href="https://span-hfintech.vercel.app" class="btn-cw">Open an Account <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <a href="tel:08036102499" class="btn-co">Call Us · 09039222028</a>
+  <div class="cta-inner">
+    <div class="cta-counters">
+      <div class="c-box">
+        <div class="c-val" id="c1">0</div>
+        <div class="c-lbl">Verified healthcare<br>providers</div>
+      </div>
+      <div class="c-box">
+        <div class="c-val" id="c2">0</div>
+        <div class="c-lbl">Active account<br>holders</div>
+      </div>
+    </div>
+    <div class="cta-right">
+      <div class="halal-tag"><span class="hdot"></span>Halal Certified</div>
+      <h2 class="cta-h">Your health fund<br>starts <em>today.</em></h2>
+      <p class="cta-sub">The only Sharia-compliant health savings platform in Nigeria. Open your account in minutes.</p>
+      <a href="https://span-hfintech.vercel.app" class="btn-cw">Open an Account →</a>
+    </div>
   </div>
 </section>
 
@@ -1001,6 +998,31 @@ const obs=new IntersectionObserver(entries=>{
 },{threshold:.06,rootMargin:'0px 0px -24px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 </script>
+<script>
+  function animCount(el,target,suffix,dur){
+    let t0=null;
+    function f(ts){
+      if(!t0)t0=ts;
+      const p=Math.min((ts-t0)/dur,1);
+      const e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(e*target)+suffix;
+      if(p<1)requestAnimationFrame(f);
+    }
+    requestAnimationFrame(f);
+  }
+  const ctaObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        animCount(document.getElementById('c1'),100,'+',1600);
+        animCount(document.getElementById('c2'),50,'+',1400);
+        ctaObs.disconnect();
+      }
+    });
+  },{threshold:.3});
+  const ctaEl=document.querySelector('.cta');
+  if(ctaEl)ctaObs.observe(ctaEl);
+  </script>
+
 </body>
 </html>
 
