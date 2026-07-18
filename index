@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Span Healthcare — Save for Your Health</title>
+<link rel="canonical" href="https://span-healthcare.com/">
+<meta name="description" content="One platform. All your health savings needs. Trusted by individuals, families, and organisations across Nigeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#459DAF;--teal-d:#2d7f91;--teal-l:#5bbfcf;--teal-v:#00B4D0;
+  --teal-xl:#A8E6F0;--coral:#FF6B52;--navy:#0B2A30;--gold:#F5A623;
+  --white:#ffffff;--cream:#F2FAFC;--text:#0B2A30;--mid:#3A6872;
+  --light:#6A9DAA;--border:#C4DDE3;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+h1,h2,h3,h4{font-family:'Inter',sans-serif}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+#nav.scrolled{box-shadow:0 2px 24px rgba(11,42,48,.1)}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nav-wm{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;color:var(--navy);letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none}
+.nav-links a{font-size:.8rem;font-weight:500;color:var(--mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-r{display:flex;gap:8px;align-items:center}
+.btn-ghost{font-size:.8rem;font-weight:500;color:var(--text);text-decoration:none;padding:8px 16px;font-family:'Inter',sans-serif;border:1.5px solid var(--border);border-radius:8px;transition:all .2s}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-cta{padding:9px 22px;background:var(--teal);color:#fff;border-radius:8px;font-size:.8rem;font-weight:600;text-decoration:none;font-family:'Inter',sans-serif;transition:all .2s}
+.btn-cta:hover{background:var(--teal-d);box-shadow:0 4px 16px rgba(69,157,175,.4)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.burger span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px}
+.mmenu{display:none;position:fixed;inset:0;top:64px;background:#fff;z-index:199;padding:2rem 5%;flex-direction:column;border-top:1px solid var(--border)}
+.mmenu.open{display:flex}
+.mmenu a{display:block;padding:14px 0;font-size:.95rem;font-weight:500;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border)}
+.mmenu .btn-cta{margin-top:1.2rem;text-align:center;display:block}
+@media(max-width:820px){.nav-links{display:none}.burger{display:flex}}
+
+/* ══════════════════════════════════════════════
+   HERO — illustrated art background
+══════════════════════════════════════════════ */
+.hero{
+  padding-top:64px;min-height:100vh;
+  position:relative;overflow:hidden;
+  background:#f8fcfd;
+  display:flex;flex-direction:column;justify-content:center;
+  padding-left:5%;padding-right:5%;padding-bottom:60px;
+}
+/* The art illustration sits as the background */
+.hero-art{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;
+}
+/* Gradient overlay so text on left stays readable */
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(248,252,253,0.96) 0%,
+    rgba(248,252,253,0.88) 35%,
+    rgba(248,252,253,0.3) 65%,
+    rgba(248,252,253,0.0) 100%
+  );
+  pointer-events:none;z-index:1;
+}
+.hero-content{position:relative;z-index:2;max-width:580px;padding:48px 0 40px}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;background:rgba(69,157,175,.12);border:1.5px solid rgba(69,157,175,.28);font-size:.65rem;font-weight:600;color:var(--teal-d);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.6rem;font-family:'Inter',sans-serif;width:fit-content}
+.bdot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hero h1{font-family:'Inter',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;line-height:1.08;letter-spacing:-.03em;color:var(--navy);margin-bottom:1.1rem}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero-sub{font-size:1.05rem;color:var(--mid);max-width:460px;line-height:1.78;margin-bottom:2.2rem;font-weight:400}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2.8rem}
+.btn-p{padding:13px 28px;background:var(--teal);color:#fff;border-radius:9px;font-size:.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;border:none;cursor:pointer;transition:all .22s}
+.btn-p:hover{background:var(--teal-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(69,157,175,.4)}
+.btn-o{padding:13px 24px;background:rgba(255,255,255,.9);color:var(--navy);border-radius:9px;font-size:.9rem;font-weight:500;text-decoration:none;border:1.5px solid var(--border);font-family:'DM Sans',sans-serif;transition:all .22s;backdrop-filter:blur(8px)}
+.btn-o:hover{border-color:var(--teal);color:var(--teal)}
+.hero-stats{display:flex;gap:2.4rem;padding-top:2rem;border-top:1px solid rgba(69,157,175,.2);flex-wrap:wrap}
+.hs{}.hs-v{font-family:'Inter',sans-serif;font-size:1.6rem;font-weight:700;color:var(--navy);line-height:1;letter-spacing:-.02em}
+.hs-v span{color:var(--teal)}
+.hs-l{font-size:.68rem;color:var(--light);text-transform:uppercase;letter-spacing:.07em;margin-top:4px;font-family:'Inter',sans-serif}
+
+/* ── MARQUEE ── */
+.strip{background:var(--navy);padding:14px 0;overflow:hidden;border-top:2px solid var(--teal-d)}
+.strip-track{display:flex;animation:scroll 26s linear infinite;width:max-content}
+.si{padding:0 36px;border-right:1px solid rgba(255,255,255,.12);font-size:.68rem;font-weight:600;color:rgba(255,255,255,.75);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;font-family:'Inter',sans-serif}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── STATEMENT — full teal background with art overlay ── */
+.statement{background:var(--teal);padding:96px 5%;position:relative;overflow:hidden}
+/* Art sketch background inside statement */
+.statement-art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.12}
+.st-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.st-h{font-family:'Inter',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.08;letter-spacing:-.03em;color:#fff}
+.st-h em{font-style:normal;color:var(--teal-xl)}
+.st-body{font-size:.95rem;color:rgba(255,255,255,.68);line-height:1.9}
+.st-body p{margin-bottom:1rem}
+.btn-cw{padding:13px 32px;background:#fff;color:var(--teal-d);border-radius:9px;font-size:.9rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;transition:all .22s;margin-top:1.8rem}
+.btn-cw:hover{box-shadow:0 10px 28px rgba(0,0,0,.18);transform:translateY(-2px)}
+
+/* ── SPLIT SECTIONS ── */
+.split{background:var(--white);padding:96px 5%}
+.split.alt{background:var(--cream)}
+.split-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.split-inner.rev{direction:rtl}.split-inner.rev>*{direction:ltr}
+
+/* Art illustration tile */
+.art-tile{border-radius:24px;overflow:hidden;position:relative;min-height:460px;display:flex;align-items:center;justify-content:center}
+.at1{background:linear-gradient(135deg,var(--teal-d) 0%,var(--teal) 60%,var(--teal-l) 100%)}
+.at2{background:linear-gradient(135deg,var(--navy) 0%,#1a4a56 100%)}
+.at3{background:linear-gradient(135deg,var(--teal-v) 0%,var(--teal) 100%)}
+/* Grid art overlay on tiles */
+.tile-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:40px 40px}
+.tile-art{position:relative;z-index:1;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:40px}
+/* Floating stat card */
+.tile-card{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-radius:14px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 8px 32px rgba(11,42,48,.15);z-index:2}
+.tc-v{font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:700;color:var(--teal);line-height:1}
+.tc-l{font-size:.62rem;color:var(--mid);font-family:'Inter',sans-serif;margin-top:3px}
+.tc-b{padding:5px 12px;background:rgba(69,157,175,.1);border-radius:20px;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;color:var(--teal-d);border:1px solid rgba(69,157,175,.22)}
+.split-content{display:flex;flex-direction:column;justify-content:center}
+.sec-lbl{font-size:.62rem;font-weight:600;color:var(--teal);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.9rem;font-family:'Inter',sans-serif}
+.sec-h{font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--navy);margin-bottom:.9rem}
+.sec-h em{font-style:normal;color:var(--teal)}
+.sec-p{font-size:.93rem;color:var(--mid);line-height:1.88;max-width:420px;margin-bottom:1.8rem}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:2rem}
+.check-list li{display:flex;align-items:flex-start;gap:11px;font-size:.88rem;color:var(--mid);line-height:1.68}
+.check-list li::before{content:'';width:20px;height:20px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg width='11' height='8' viewBox='0 0 11 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L4 7L10 1' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+
+/* ── DISEASE CARDS ── */
+.disease{background:var(--navy);padding:96px 5%;position:relative;overflow:hidden}
+/* Art sketch background */
+.disease-art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.08}
+.dh{position:relative;z-index:1;margin-bottom:3rem}
+.d-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;position:relative;z-index:1}
+.d-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(69,157,175,.2);border-radius:20px;padding:32px 26px;transition:all .3s;position:relative;overflow:hidden}
+.d-card:hover{background:rgba(69,157,175,.1);border-color:rgba(69,157,175,.5);transform:translateY(-4px)}
+.d-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-v))}
+.d-ico{width:48px;height:48px;border-radius:12px;background:rgba(69,157,175,.15);border:1.5px solid rgba(69,157,175,.25);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.d-num{font-family:'Inter',sans-serif;font-size:2rem;font-weight:700;color:var(--teal-v);line-height:1;margin-bottom:7px;letter-spacing:-.02em}
+.d-title{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;color:#fff;margin-bottom:10px}
+.d-text{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.78}
+.sec-lbl-w{color:rgba(255,255,255,.5)}
+.sec-h-w{font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:#fff;margin-bottom:.9rem}
+.sec-h-w em{font-style:normal;color:var(--teal-xl)}
+.sec-p-w{font-size:.93rem;color:rgba(255,255,255,.5);line-height:1.88;max-width:420px}
+
+/* ── PHONE CARDS ── */
+.phone-sec{background:var(--cream);padding:96px 5%}
+.ph-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem}
+.ph-card{border-radius:32px;overflow:hidden;border:2px solid;transition:all .3s;box-shadow:0 12px 40px rgba(11,42,48,.08)}
+.ph-card:hover{transform:translateY(-7px)}
+.phc1{border-color:var(--teal);background:#fff}.phc1:hover{box-shadow:0 24px 56px rgba(69,157,175,.25)}
+.phc2{border-color:var(--navy);background:var(--navy)}.phc2:hover{box-shadow:0 24px 56px rgba(11,42,48,.3)}
+.phc3{border-color:var(--teal-v);background:#fff}.phc3:hover{box-shadow:0 24px 56px rgba(0,180,208,.2)}
+.ph-top{height:10px;display:flex;align-items:center;justify-content:center}
+.pt1{background:var(--teal)}.pt2{background:#0a2030}.pt3{background:var(--teal-v)}
+.phn{width:48px;height:5px;border-radius:3px;background:rgba(255,255,255,.22)}
+.ph-body{padding:28px 24px 32px;min-height:340px;display:flex;flex-direction:column}
+.ph-tag{display:inline-block;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.ptg1{background:rgba(69,157,175,.1);color:var(--teal-d);border:1.5px solid rgba(69,157,175,.25)}
+.ptg2{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.18)}
+.ptg3{background:rgba(0,180,208,.1);color:#0077a0;border:1.5px solid rgba(0,180,208,.25)}
+.ph-body h3{font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:-.02em;line-height:1.22;margin-bottom:.7rem}
+.phc1 h3,.phc3 h3{color:var(--navy)}.phc2 h3{color:#fff}
+.ph-body > p{font-size:.8rem;line-height:1.82;margin-bottom:1.6rem;flex:1}
+.phc1 > .ph-body > p,.phc3 > .ph-body > p{color:var(--mid)}.phc2 > .ph-body > p{color:rgba(255,255,255,.55)}
+.ph-stat{border-radius:12px;padding:16px 18px;margin-top:auto}
+.phs1{background:rgba(69,157,175,.08);border:1.5px solid rgba(69,157,175,.22)}
+.phs2{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12)}
+.phs3{background:rgba(0,180,208,.08);border:1.5px solid rgba(0,180,208,.22)}
+.ph-sv{font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:700;line-height:1;letter-spacing:-.02em}
+.phs1 .ph-sv{color:var(--teal)}.phs2 .ph-sv{color:#fff}.phs3 .ph-sv{color:#0077a0}
+.ph-sl{font-size:.64rem;margin-top:4px;font-family:'DM Sans',sans-serif}
+.phs1 .ph-sl,.phs3 .ph-sl{color:var(--mid)}.phs2 .ph-sl{color:rgba(255,255,255,.4)}
+.ph-bot{height:32px;display:flex;align-items:center;justify-content:center;border-top:1px solid}
+.phc1 .ph-bot,.phc3 .ph-bot{background:var(--cream);border-color:var(--border)}
+.phc2 .ph-bot{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.07)}
+.ph-bar{width:64px;height:4px;border-radius:2px}
+.phc1 .ph-bar,.phc3 .ph-bar{background:var(--border)}.phc2 .ph-bar{background:rgba(255,255,255,.14)}
+.team-box{margin-top:3rem;background:var(--navy);border-radius:20px;padding:40px;text-align:center;border:1px solid rgba(69,157,175,.2)}
+.team-box h3{font-family:'Inter',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.5rem;letter-spacing:-.02em}
+.team-box p{font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:1.6rem;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.8}
+
+/* ── TESTIMONIALS ── */
+.testi{background:var(--white);padding:96px 5%}
+.testi-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
+.testi-big{font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--navy);max-width:340px}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.tc{background:var(--cream);border-radius:20px;padding:30px;border:1.5px solid var(--border);transition:all .25s}
+.tc:hover{border-color:var(--teal);box-shadow:0 8px 28px rgba(69,157,175,.12)}
+.tc-q{font-size:2.2rem;color:var(--teal);opacity:.4;line-height:1;margin-bottom:12px;font-family:'Inter',sans-serif}
+.tc-text{font-size:.85rem;color:var(--mid);line-height:1.85;font-style:italic;margin-bottom:18px}
+.tc-name{font-size:.8rem;font-weight:600;color:var(--navy);font-family:'Inter',sans-serif}
+.tc-role{font-size:.7rem;color:var(--light);margin-top:3px}
+
+/* ── CLARITY ── */
+.clarity{background:var(--navy);padding:96px 5%;position:relative;overflow:hidden}
+.clarity::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(69,157,175,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(69,157,175,.07) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.cl-head{text-align:center;margin-bottom:3rem;position:relative;z-index:1}
+.cl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;position:relative;z-index:1}
+.c-card{border-radius:18px;padding:32px}
+.c-card.yes{background:rgba(69,157,175,.12);border:1.5px solid rgba(69,157,175,.3)}
+.c-card.no{background:rgba(255,255,255,.03);border:1.5px solid rgba(255,255,255,.07)}
+.c-card h3{font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;margin-bottom:18px}
+.c-card.yes h3{color:var(--teal-xl)}.c-card.no h3{color:rgba(255,255,255,.3)}
+.c-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.c-list li{display:flex;align-items:flex-start;gap:9px;font-size:.83rem;line-height:1.68}
+.c-card.yes .c-list li{color:rgba(255,255,255,.8)}.c-card.no .c-list li{color:rgba(255,255,255,.22);text-decoration:line-through}
+.c-list li::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.c-card.yes .c-list li::before{background:var(--teal)}.c-card.no .c-list li::before{background:rgba(255,255,255,.18)}
+
+/* ── PARTNERS ── */
+.partners{background:var(--cream);padding:48px 5%;border-top:1px solid var(--border);text-align:center}
+.p-lbl{font-size:.62rem;font-weight:600;color:var(--light);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.8rem;font-family:'Inter',sans-serif}
+.p-row{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap}
+.p-item{font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;color:var(--light);padding:10px 20px;border:1.5px solid var(--border);border-radius:9px;background:#fff;transition:all .25s}
+.p-item:hover{border-color:var(--teal);color:var(--teal)}
+.p-item img{height:36px;width:auto;object-fit:contain;opacity:.5;display:block;transition:all .25s}
+.p-item:hover img{opacity:.9}
+
+/* ── CTA ── */
+.cta{background:var(--teal);padding:100px 5%;text-align:center;position:relative;overflow:hidden}
+.cta-art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.1}
+.cta h2{position:relative;z-index:1;font-family:'Inter',sans-serif;font-size:clamp(1.8rem,4.5vw,3.6rem);font-weight:700;color:#fff;letter-spacing:-.03em;max-width:600px;margin:0 auto .9rem;line-height:1.06}
+.cta > p{position:relative;z-index:1;font-size:.95rem;color:rgba(255,255,255,.65);max-width:380px;margin:0 auto 2.6rem;line-height:1.82}
+.cta-btns{position:relative;z-index:1;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-co{padding:13px 26px;background:transparent;color:rgba(255,255,255,.85);border-radius:9px;font-size:.9rem;font-weight:500;text-decoration:none;border:1.5px solid rgba(255,255,255,.3);font-family:'DM Sans',sans-serif;transition:all .22s}
+.btn-co:hover{border-color:#fff;color:#fff}
+
+/* ── FOOTER ── */
+footer{background:#060e11;padding:60px 5% 28px}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:2.8rem;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
+.f-brand{font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--teal-xl);display:flex;align-items:center;gap:9px}
+.f-desc{font-size:.75rem;color:rgba(255,255,255,.28);line-height:1.88;max-width:220px;margin-top:12px;font-family:'DM Sans',sans-serif}
+.fc h4{font-family:'Inter',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:16px}
+.fc ul{list-style:none}
+.fc li{margin-bottom:9px}
+.fc a{font-size:.75rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;font-family:'DM Sans',sans-serif}
+.fc a:hover{color:var(--teal-xl)}
+.f-contact{font-size:.73rem;color:rgba(255,255,255,.34);line-height:2.1;font-family:'DM Sans',sans-serif}
+.f-bot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:1rem}
+.f-bot p{font-size:.64rem;color:rgba(255,255,255,.18);font-family:'DM Sans',sans-serif}
+.f-halal{font-size:.62rem;color:rgba(255,255,255,.18);display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif}
+.f-halal::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);opacity:.5}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .st-inner,.split-inner,.split-inner.rev{grid-template-columns:1fr;direction:ltr}
+  .art-tile{min-height:320px}
+  .d-grid,.ph-grid,.tg{grid-template-columns:1fr}
+  .cl-grid{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .testi-hd{flex-direction:column;align-items:flex-start}
+  .hero-overlay{background:linear-gradient(90deg,rgba(248,252,253,.98) 0%,rgba(248,252,253,.95) 55%,rgba(248,252,253,.6) 100%)}
+}
+@media(max-width:560px){.f-grid{grid-template-columns:1fr}}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#060e11}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
+</style>
+</head>
+<body>
+
+<header id="nav">
+  <a href="#" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 120 120" fill="none">
+      <polygon points="28,14 82,14 70,44 16,44" fill="#0B6577"/>
+      <path d="M70,44 C90,44 96,58 82,68 C68,78 24,72 24,86" stroke="#459DAF" stroke-width="11" stroke-linecap="round" fill="none"/>
+      <polygon points="38,76 92,76 80,106 26,106" fill="#459DAF"/>
+    </svg>
+    <span class="nav-wm">Span Healthcare</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Span</a></li>
+    <li><a href="#testimonials">Members</a></li>
+  </ul>
+  <div class="nav-r">
+    <a href="https://span-hfintech.vercel.app" class="btn-ghost">Log in</a>
+    <a href="https://span-hfintech.vercel.app/onboarding" class="btn-cta">Open an Account</a>
+  </div>
+  <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</header>
+
+<div class="mmenu" id="mmenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#why" onclick="toggleMenu()">Why Span</a>
+  <a href="#testimonials" onclick="toggleMenu()">Members</a>
+  <a href="https://span-hfintech.vercel.app/onboarding" class="btn-cta">Open an Account</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO — Health savings art as background
+═══════════════════════════════════════════ -->
+<section class="hero" id="home">
+
+  <!-- THE ART BACKGROUND — visible health savings illustration -->
+  <svg class="hero-art" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+
+    <!-- === LARGE COMPOSITION — right side === -->
+
+    <!-- Outer orbit rings -->
+    <circle cx="980" cy="450" r="360" stroke="#459DAF" stroke-width="1" opacity=".12"/>
+    <circle cx="980" cy="450" r="290" stroke="#459DAF" stroke-width="0.8" stroke-dasharray="6 10" opacity=".18"/>
+    <circle cx="980" cy="450" r="200" stroke="#00B4D0" stroke-width="1" opacity=".14"/>
+
+    <!-- === CENTRAL SHIELD — savings protection === -->
+    <path d="M980 260 L1080 300 L1080 430 C1080 490 980 540 980 540 C980 540 880 490 880 430 L880 300 Z"
+      fill="rgba(69,157,175,.08)" stroke="#459DAF" stroke-width="1.5" opacity=".5"/>
+    <!-- Shield cross — health -->
+    <rect x="966" y="360" width="28" height="80" rx="6" fill="rgba(69,157,175,.25)"/>
+    <rect x="946" y="380" width="68" height="28" rx="6" fill="rgba(69,157,175,.25)"/>
+    <!-- Naira in shield -->
+    <text x="980" y="410" font-family="Inter,sans-serif" font-size="22" font-weight="700" fill="#459DAF" text-anchor="middle" opacity=".4">₦</text>
+
+    <!-- === STETHOSCOPE — top right === -->
+    <path d="M1160 160 C1160 160 1140 180 1140 210 C1140 240 1160 252 1180 252 C1200 252 1220 240 1220 210 C1220 180 1200 160 1200 160"
+      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".4"/>
+    <path d="M1160 160 C1160 140 1155 120 1140 110 C1125 100 1100 105 1090 120 C1075 140 1080 165 1080 185"
+      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".4"/>
+    <path d="M1200 160 C1200 140 1205 120 1220 110 C1235 100 1260 105 1270 120 C1285 140 1280 165 1280 200"
+      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".4"/>
+    <path d="M1080 185 C1080 220 1100 260 1130 280 C1160 300 1180 300 1180 300"
+      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".35"/>
+    <path d="M1280 200 C1280 240 1265 270 1240 285 C1215 300 1180 300 1180 300"
+      stroke="#459DAF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".35"/>
+    <line x1="1180" y1="300" x2="1180" y2="340" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+    <circle cx="1180" cy="348" r="8" fill="none" stroke="#459DAF" stroke-width="2" opacity=".4"/>
+    <circle cx="1180" cy="348" r="3" fill="#459DAF" opacity=".4"/>
+
+    <!-- === COIN STACK — top left area of art === -->
+    <ellipse cx="800" cy="290" rx="40" ry="11" fill="rgba(69,157,175,.18)" stroke="#459DAF" stroke-width="1.2" opacity=".5"/>
+    <ellipse cx="800" cy="270" rx="40" ry="11" fill="rgba(69,157,175,.15)" stroke="#459DAF" stroke-width="1.2" opacity=".5"/>
+    <rect x="760" y="270" width="80" height="20" fill="rgba(69,157,175,.12)" opacity=".5"/>
+    <ellipse cx="800" cy="250" rx="40" ry="11" fill="rgba(69,157,175,.22)" stroke="#459DAF" stroke-width="1.2" opacity=".6"/>
+    <ellipse cx="800" cy="230" rx="40" ry="11" fill="rgba(69,157,175,.18)" stroke="#459DAF" stroke-width="1.2" opacity=".5"/>
+    <rect x="760" y="230" width="80" height="20" fill="rgba(69,157,175,.1)" opacity=".5"/>
+    <ellipse cx="800" cy="210" rx="40" ry="11" fill="rgba(69,157,175,.3)" stroke="#459DAF" stroke-width="1.5" opacity=".65"/>
+    <!-- Naira on top coin -->
+    <text x="800" y="215" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#459DAF" text-anchor="middle" opacity=".55">₦</text>
+
+    <!-- === GROWING PLANT FROM COINS — savings growth === -->
+    <!-- Stem -->
+    <path d="M800 210 C800 195 800 175 800 155 C800 130 800 110 800 85"
+      stroke="#2d7f91" stroke-width="2.5" stroke-linecap="round" opacity=".45"/>
+    <!-- Left branch -->
+    <path d="M800 155 C800 155 778 145 765 128"
+      stroke="#2d7f91" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+    <!-- Right branch -->
+    <path d="M800 135 C800 135 822 122 838 105"
+      stroke="#2d7f91" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+    <!-- Leaves -->
+    <ellipse cx="758" cy="120" rx="14" ry="9" fill="rgba(69,157,175,.25)" stroke="#459DAF" stroke-width="1" opacity=".5" transform="rotate(-30 758 120)"/>
+    <ellipse cx="844" cy="97" rx="14" ry="9" fill="rgba(69,157,175,.25)" stroke="#459DAF" stroke-width="1" opacity=".5" transform="rotate(25 844 97)"/>
+    <!-- Top flower/circle -->
+    <circle cx="800" cy="75" r="16" fill="rgba(0,180,208,.15)" stroke="#00B4D0" stroke-width="1.5" opacity=".5"/>
+    <circle cx="800" cy="75" r="7" fill="rgba(0,180,208,.3)" opacity=".5"/>
+
+    <!-- === GROWTH CHART — bottom right === -->
+    <rect x="820" y="600" width="12" height="50" rx="4" fill="#459DAF" opacity=".35"/>
+    <rect x="840" y="575" width="12" height="75" rx="4" fill="#459DAF" opacity=".35"/>
+    <rect x="860" y="550" width="12" height="100" rx="4" fill="#459DAF" opacity=".4"/>
+    <rect x="880" y="520" width="12" height="130" rx="4" fill="#459DAF" opacity=".45"/>
+    <rect x="900" y="490" width="12" height="160" rx="4" fill="#00B4D0" opacity=".45"/>
+    <!-- Chart line -->
+    <polyline points="826,600 846,572 866,546 886,516 906,486" stroke="#00B4D0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".55"/>
+    <!-- Arrow at end -->
+    <path d="M906 486 L916 472 M916 472 L908 472 M916 472 L916 480" stroke="#00B4D0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+    <!-- Axis lines -->
+    <line x1="810" y1="650" x2="930" y2="650" stroke="#459DAF" stroke-width="1" opacity=".25"/>
+    <line x1="810" y1="650" x2="810" y2="480" stroke="#459DAF" stroke-width="1" opacity=".25"/>
+
+    <!-- === WALLET — right side === -->
+    <rect x="1110" y="520" width="130" height="90" rx="14" fill="rgba(69,157,175,.1)" stroke="#459DAF" stroke-width="1.5" opacity=".45"/>
+    <line x1="1110" y1="550" x2="1240" y2="550" stroke="#459DAF" stroke-width="1" opacity=".3"/>
+    <rect x="1190" y="536" width="40" height="28" rx="8" fill="rgba(69,157,175,.2)" stroke="#459DAF" stroke-width="1" opacity=".4"/>
+    <circle cx="1210" cy="550" r="5" fill="rgba(69,157,175,.4)" opacity=".5"/>
+    <!-- Card lines -->
+    <line x1="1122" y1="562" x2="1178" y2="562" stroke="#459DAF" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>
+    <line x1="1122" y1="572" x2="1158" y2="572" stroke="#459DAF" stroke-width="1" stroke-linecap="round" opacity=".25"/>
+    <line x1="1122" y1="590" x2="1175" y2="590" stroke="#459DAF" stroke-width="1" stroke-linecap="round" opacity=".25"/>
+
+    <!-- === FAMILY SILHOUETTE — center composition === -->
+    <!-- Parent 1 -->
+    <circle cx="952" cy="420" r="14" fill="rgba(69,157,175,.18)" stroke="rgba(69,157,175,.4)" stroke-width="1"/>
+    <path d="M934 470 C934 452 942 444 952 444 C962 444 970 452 970 470" fill="rgba(69,157,175,.15)" stroke="rgba(69,157,175,.3)" stroke-width="1"/>
+    <!-- Parent 2 -->
+    <circle cx="1010" cy="424" r="13" fill="rgba(69,157,175,.15)" stroke="rgba(69,157,175,.35)" stroke-width="1"/>
+    <path d="M993 470 C993 453 1000 446 1010 446 C1020 446 1027 453 1027 470" fill="rgba(69,157,175,.12)" stroke="rgba(69,157,175,.28)" stroke-width="1"/>
+    <!-- Child -->
+    <circle cx="981" cy="448" r="9" fill="rgba(69,157,175,.22)" stroke="rgba(69,157,175,.45)" stroke-width="1"/>
+    <path d="M968 470 C968 460 974 456 981 456 C988 456 994 460 994 470" fill="rgba(69,157,175,.18)" stroke="rgba(69,157,175,.35)" stroke-width="1"/>
+    <!-- Connecting line under family -->
+    <line x1="920" y1="475" x2="1042" y2="475" stroke="rgba(69,157,175,.2)" stroke-width="1" stroke-dasharray="4 6"/>
+
+    <!-- === HEARTBEAT LINE — health indicator === -->
+    <polyline points="670,450 700,450 715,420 730,480 745,430 760,450 790,450 800,440 810,450 840,450"
+      stroke="#459DAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".3"/>
+
+    <!-- === SCATTERED ELEMENTS === -->
+    <!-- Small naira symbols -->
+    <text x="700" y="320" font-family="Inter,sans-serif" font-size="18" font-weight="600" fill="#459DAF" opacity=".2">₦</text>
+    <text x="1270" y="380" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#459DAF" opacity=".15">₦</text>
+    <text x="850" y="550" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#459DAF" opacity=".18">₦</text>
+    <text x="1100" y="470" font-family="Inter,sans-serif" font-size="16" font-weight="600" fill="#459DAF" opacity=".12">₦</text>
+
+    <!-- Small plus/cross health symbols -->
+    <line x1="720" y1="200" x2="720" y2="220" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".25"/>
+    <line x1="710" y1="210" x2="730" y2="210" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".25"/>
+    <line x1="1290" y1="560" x2="1290" y2="575" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".2"/>
+    <line x1="1283" y1="567" x2="1297" y2="567" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".2"/>
+    <line x1="1050" y1="210" x2="1050" y2="225" stroke="#459DAF" stroke-width="1.5" stroke-linecap="round" opacity=".2"/>
+    <line x1="1043" y1="217" x2="1057" y2="217" stroke="#459DAF" stroke-width="1.5" stroke-linecap="round" opacity=".2"/>
+
+    <!-- Floating dots constellation -->
+    <circle cx="680" cy="390" r="3" fill="#459DAF" opacity=".2"/>
+    <circle cx="700" cy="370" r="2" fill="#459DAF" opacity=".15"/>
+    <circle cx="720" cy="380" r="3.5" fill="#459DAF" opacity=".18"/>
+    <circle cx="740" cy="360" r="2" fill="#459DAF" opacity=".15"/>
+    <line x1="680" y1="390" x2="700" y2="370" stroke="#459DAF" stroke-width="0.8" opacity=".1"/>
+    <line x1="700" y1="370" x2="720" y2="380" stroke="#459DAF" stroke-width="0.8" opacity=".1"/>
+    <line x1="720" y1="380" x2="740" y2="360" stroke="#459DAF" stroke-width="0.8" opacity=".1"/>
+
+    <!-- Small circles scattered -->
+    <circle cx="660" cy="280" r="20" fill="none" stroke="#459DAF" stroke-width="1" opacity=".15"/>
+    <circle cx="1350" cy="400" r="25" fill="none" stroke="#459DAF" stroke-width="1" opacity=".12"/>
+    <circle cx="1300" cy="650" r="18" fill="rgba(69,157,175,.05)" stroke="#459DAF" stroke-width="1" opacity=".15"/>
+    <circle cx="750" cy="700" r="30" fill="none" stroke="#459DAF" stroke-width="1" stroke-dasharray="4 8" opacity=".12"/>
+
+    <!-- Pills/capsule -->
+    <rect x="1240" y="460" width="50" height="20" rx="10" fill="rgba(69,157,175,.1)" stroke="#459DAF" stroke-width="1" opacity=".3"/>
+    <line x1="1265" y1="460" x2="1265" y2="480" stroke="#459DAF" stroke-width="1" opacity=".25"/>
+    <rect x="1235" y="490" width="40" height="16" rx="8" fill="rgba(69,157,175,.08)" stroke="#459DAF" stroke-width="1" opacity=".25" transform="rotate(-15 1255 498)"/>
+
+    <!-- Hospital building outline — bottom -->
+    <rect x="1300" y="680" width="80" height="80" rx="4" fill="rgba(69,157,175,.05)" stroke="#459DAF" stroke-width="1" opacity=".2"/>
+    <rect x="1316" y="680" width="48" height="30" rx="2" fill="rgba(69,157,175,.08)" stroke="#459DAF" stroke-width="1" opacity=".18"/>
+    <!-- Windows -->
+    <rect x="1316" y="720" width="14" height="40" rx="2" fill="rgba(69,157,175,.1)" opacity=".2"/>
+    <rect x="1338" y="720" width="14" height="40" rx="2" fill="rgba(69,157,175,.1)" opacity=".2"/>
+    <rect x="1360" y="720" width="14" height="40" rx="2" fill="rgba(69,157,175,.1)" opacity=".2"/>
+    <!-- H cross on hospital -->
+    <line x1="1340" y1="688" x2="1340" y2="702" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".3"/>
+    <line x1="1333" y1="695" x2="1347" y2="695" stroke="#459DAF" stroke-width="2" stroke-linecap="round" opacity=".3"/>
+
+    <!-- Trend arrow large — top area -->
+    <path d="M660 700 C700 660 760 620 820 560 C870 510 910 490 960 470"
+      stroke="#459DAF" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 8" fill="none" opacity=".18"/>
+
+  </svg>
+
+  <!-- Gradient overlay — keeps left text readable -->
+  <div class="hero-overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="hero-content rv">
+    <div class="hero-badge"><span class="bdot"></span>Health Savings · Nigeria</div>
+    <h1>Save for your health.<br><em>Before you need it.</em></h1>
+    <p class="hero-sub">One platform. All your health savings needs. Trusted by individuals, families, and organisations across Nigeria.</p>
+    <div class="hero-btns">
+      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p">Open an Account <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#services" class="btn-o">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-v"><span>₦50k</span></div><div class="hs-l">Individual minimum</div></div>
+      <div class="hs"><div class="hs-v"><span>₦3,500</span></div><div class="hs-l">Telemedicine fee</div></div>
+      <div class="hs"><div class="hs-v"><span>0%</span></div><div class="hs-l">Riba · Halal</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="strip">
+  <div class="strip-track">
+    <div class="si">Health Savings Wallet</div><div class="si">Telemedicine ₦3,500</div>
+    <div class="si">Free Drug Delivery</div><div class="si">Halal Investment Returns</div>
+    <div class="si">No Waiting Period</div><div class="si">50+ Providers</div>
+    <div class="si">Organisation Plans</div><div class="si">Family Coverage</div>
+    <div class="si">Health Savings Wallet</div><div class="si">Telemedicine ₦3,500</div>
+    <div class="si">Free Drug Delivery</div><div class="si">Halal Investment Returns</div>
+    <div class="si">No Waiting Period</div><div class="si">50+ Providers</div>
+    <div class="si">Organisation Plans</div><div class="si">Family Coverage</div>
+  </div>
+</div>
+
+<!-- STATEMENT — teal background with coin art sketch overlay -->
+<section class="statement">
+  <!-- Coin/growth art in background -->
+  <svg class="statement-art" viewBox="0 0 1200 400" fill="none" preserveAspectRatio="xMidYMid slice">
+    <!-- Scattered coins -->
+    <ellipse cx="100" cy="200" rx="50" ry="14" stroke="white" stroke-width="1.5"/>
+    <ellipse cx="100" cy="186" rx="50" ry="14" stroke="white" stroke-width="1.5"/>
+    <rect x="50" y="186" width="100" height="14" fill="white" opacity=".3"/>
+    <text x="100" y="192" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">₦</text>
+    <!-- Growth arrow large -->
+    <path d="M200 350 C300 280 450 200 600 140 C750 80 900 60 1100 40" stroke="white" stroke-width="2" stroke-dasharray="8 12" stroke-linecap="round" opacity=".6"/>
+    <polygon points="1108,32 1100,48 1116,40" fill="white" opacity=".6"/>
+    <!-- Shield right -->
+    <path d="M1050 180 L1120 210 L1120 300 C1120 340 1050 370 1050 370 C1050 370 980 340 980 300 L980 210 Z" stroke="white" stroke-width="1.5" fill="none" opacity=".4"/>
+    <line x1="1050" y1="250" x2="1050" y2="310" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+    <line x1="1020" y1="280" x2="1080" y2="280" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+    <!-- Small circles -->
+    <circle cx="400" cy="320" r="30" stroke="white" stroke-width="1" opacity=".2" stroke-dasharray="4 6"/>
+    <circle cx="700" cy="50" r="20" stroke="white" stroke-width="1" opacity=".2"/>
+    <circle cx="850" cy="340" r="15" stroke="white" stroke-width="1" opacity=".18"/>
+  </svg>
+  <div class="st-inner rv">
+    <h2 class="st-h">Your health costs will rise.<br><em>Will your savings?</em></h2>
+    <div>
+      <div class="st-body">
+        <p>Nigeria is in the middle of a quiet health crisis. Hypertension, diabetes, and kidney disease are increasingly affecting working Nigerians — many undiagnosed, none financially prepared.</p>
+        <p>A dedicated health savings account that grows while you wait and pays when you need care. Built on transparency, ethics, and access for every Nigerian.</p>
+      </div>
+      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-cw" style="display:inline-flex">Open an Account →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT 1 — Health Savings -->
+<section class="split" id="services">
+  <div class="split-inner rv">
+    <div class="art-tile at1">
+      <div class="tile-grid"></div>
+      <div class="tile-art">
+        <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+          <!-- Wallet -->
+          <rect x="40" y="80" width="200" height="140" rx="20" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+          <line x1="40" y1="110" x2="240" y2="110" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+          <!-- Card slot -->
+          <rect x="170" y="95" width="55" height="35" rx="10" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+          <circle cx="197" cy="112" r="6" fill="rgba(255,255,255,.35)"/>
+          <!-- Balance -->
+          <text x="140" y="165" font-family="Inter,sans-serif" font-size="26" font-weight="700" fill="white" text-anchor="middle" opacity=".9">₦120,500</text>
+          <text x="140" y="185" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,.5)" text-anchor="middle" letter-spacing="1.5">HEALTH WALLET</text>
+          <!-- Growth indicator -->
+          <polyline points="60,210 80,200 100,205 120,190 140,182 160,170 180,165 200,155" stroke="#A8E6F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Heart top -->
+          <path d="M140 55 C140 55 128 44 120 44 C112 44 106 50 106 57 C106 66 140 78 140 78 C140 78 174 66 174 57 C174 50 168 44 160 44 C152 44 140 55 140 55Z" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.45)" stroke-width="1.5"/>
+          <!-- Cross in heart -->
+          <line x1="140" y1="52" x2="140" y2="64" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
+          <line x1="134" y1="58" x2="146" y2="58" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
+          <!-- Stacked coins below -->
+          <ellipse cx="140" cy="238" rx="36" ry="10" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+          <ellipse cx="140" cy="228" rx="36" ry="10" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+          <ellipse cx="140" cy="218" rx="36" ry="10" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.38)" stroke-width="1.2"/>
+          <text x="140" y="222" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,.6)" text-anchor="middle">₦</text>
+        </svg>
+      </div>
+      <div class="tile-card">
+        <div><div class="tc-v">₦50,000</div><div class="tc-l">Individual minimum</div></div>
+        <div class="tc-b">Active Day 1</div>
+      </div>
+    </div>
+    <div class="split-content">
+      <div class="sec-lbl">Health Savings Wallet</div>
+      <h2 class="sec-h">Your money.<br><em>Always yours.</em></h2>
+      <p class="sec-p">A dedicated account for your healthcare costs. Your balance is always accessible for consultations, hospital visits, and medications — and earns halal returns while it waits.</p>
+      <ul class="check-list">
+        <li>No waiting period — active from day one</li>
+        <li>Pre-existing conditions covered immediately</li>
+        <li>50% invested in Konooz halal fund — returns quarterly</li>
+        <li>Span pays hospitals directly — no forms needed</li>
+      </ul>
+      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p" style="width:fit-content">Open an Account →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT 2 — Telemedicine -->
+<section class="split alt">
+  <div class="split-inner rev rv">
+    <div class="art-tile at2">
+      <div class="tile-grid"></div>
+      <div class="tile-art">
+        <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+          <!-- Phone frame -->
+          <rect x="75" y="30" width="130" height="220" rx="20" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+          <rect x="85" y="46" width="110" height="188" rx="12" fill="rgba(255,255,255,.05)"/>
+          <!-- Status bar -->
+          <rect x="90" y="52" width="100" height="6" rx="3" fill="rgba(69,157,175,.4)"/>
+          <circle cx="185" cy="55" r="5" fill="#00B4D0"/>
+          <!-- Doctor avatar -->
+          <circle cx="140" cy="115" r="34" fill="rgba(69,157,175,.2)" stroke="rgba(69,157,175,.45)" stroke-width="1.5"/>
+          <circle cx="140" cy="105" r="13" fill="rgba(255,255,255,.3)"/>
+          <path d="M116 136 C116 126 127 119 140 119 C153 119 164 126 164 136" fill="rgba(255,255,255,.2)"/>
+          <!-- Stethoscope on doctor -->
+          <path d="M128 108 C126 112 126 116 128 118 C130 120 134 120 136 118" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <!-- Call controls -->
+          <circle cx="112" cy="210" r="10" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+          <circle cx="140" cy="210" r="13" fill="#FF6B52"/>
+          <circle cx="168" cy="210" r="10" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+          <!-- Signal waves -->
+          <path d="M100 72 C100 68 104 65 108 65" stroke="#00B4D0" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
+          <path d="M96 76 C96 68 103 62 112 62" stroke="#00B4D0" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".45"/>
+          <!-- Delivery box floating -->
+          <rect x="175" y="140" width="68" height="52" rx="10" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+          <line x1="175" y1="157" x2="243" y2="157" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+          <text x="209" y="152" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(255,255,255,.5)" text-anchor="middle" letter-spacing="1">FREE</text>
+          <text x="209" y="171" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,.7)" text-anchor="middle" font-weight="600">Delivery</text>
+          <!-- Pills -->
+          <rect x="176" y="200" width="38" height="14" rx="7" fill="rgba(69,157,175,.25)" stroke="rgba(69,157,175,.4)" stroke-width="1"/>
+          <line x1="195" y1="200" x2="195" y2="214" stroke="rgba(69,157,175,.4)" stroke-width="1"/>
+          <rect x="220" y="205" width="30" height="12" rx="6" fill="rgba(69,157,175,.2)" stroke="rgba(69,157,175,.35)" stroke-width="1" transform="rotate(-15 235 211)"/>
+        </svg>
+      </div>
+      <div class="tile-card">
+        <div><div class="tc-v">₦3,500</div><div class="tc-l">Flat rate · Free drug delivery</div></div>
+        <div class="tc-b">24/7</div>
+      </div>
+    </div>
+    <div class="split-content">
+      <div class="sec-lbl">Telemedicine + Delivery</div>
+      <h2 class="sec-h">A doctor.<br><em>Wherever you are.</em></h2>
+      <p class="sec-p">Consult a verified Nigerian doctor via video, audio, or chat — any time, any day. Receive prescriptions instantly. Medications delivered free to your door, billed from your wallet.</p>
+      <ul class="check-list">
+        <li>₦3,500 flat rate — no surprises</li>
+        <li>Free drug delivery with every prescription</li>
+        <li>MDCN-registered Nigerian doctors</li>
+        <li>24/7 access — no appointment booking needed</li>
+      </ul>
+      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p" style="width:fit-content">Start a Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT 3 — Family -->
+<section class="split">
+  <div class="split-inner rv">
+    <div class="art-tile at3">
+      <div class="tile-grid"></div>
+      <div class="tile-art">
+        <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+          <!-- Large umbrella — family protection -->
+          <path d="M60 140 C60 95 96 65 140 65 C184 65 220 95 220 140" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+          <line x1="140" y1="65" x2="140" y2="42" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M140 42 L140 36" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="140" cy="32" r="6" fill="rgba(255,255,255,.3)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+          <!-- Shield badge on umbrella -->
+          <path d="M126 40 L140 34 L154 40 L154 52 C154 58 140 63 140 63 C140 63 126 58 126 52Z" fill="rgba(255,255,255,.25)" stroke="rgba(255,255,255,.5)" stroke-width="1"/>
+          <!-- Cross in shield -->
+          <line x1="140" y1="42" x2="140" y2="56" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
+          <line x1="133" y1="49" x2="147" y2="49" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
+          <!-- Family group -->
+          <!-- Father -->
+          <circle cx="112" cy="160" r="16" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+          <path d="M92 205 C92 185 101 177 112 177 C123 177 132 185 132 205" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+          <!-- Mother -->
+          <circle cx="168" cy="163" r="15" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.38)" stroke-width="1.2"/>
+          <path d="M149 205 C149 186 157 179 168 179 C179 179 187 186 187 205" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.26)" stroke-width="1"/>
+          <!-- Child -->
+          <circle cx="140" cy="182" r="11" fill="rgba(255,255,255,.25)" stroke="rgba(255,255,255,.45)" stroke-width="1.2"/>
+          <path d="M126 210 C126 200 132 195 140 195 C148 195 154 200 154 210" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.32)" stroke-width="1"/>
+          <!-- Organisation tags below -->
+          <rect x="46" y="222" width="66" height="20" rx="10" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+          <text x="79" y="236" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,.75)" text-anchor="middle">families</text>
+          <rect x="120" y="222" width="80" height="20" rx="10" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+          <text x="160" y="236" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,.7)" text-anchor="middle">organisations</text>
+          <rect x="208" y="222" width="60" height="20" rx="10" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+          <text x="238" y="236" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,.7)" text-anchor="middle">schools</text>
+          <!-- Growth dots -->
+          <circle cx="84" cy="132" r="3" fill="rgba(255,255,255,.35)"/>
+          <circle cx="196" cy="128" r="3" fill="rgba(255,255,255,.35)"/>
+          <circle cx="140" cy="118" r="4" fill="rgba(255,255,255,.45)"/>
+        </svg>
+      </div>
+      <div class="tile-card">
+        <div><div class="tc-v">₦100,000</div><div class="tc-l">Family or organisation minimum</div></div>
+        <div class="tc-b">48hr Setup</div>
+      </div>
+    </div>
+    <div class="split-content">
+      <div class="sec-lbl">Family & Organisation Plans</div>
+      <h2 class="sec-h">One account.<br><em>Whole household.</em></h2>
+      <p class="sec-p">One account covers your entire household — spouse, children, and parents. Schools, SMEs, and agencies can enroll staff on tailored group plans that give real healthcare access to every team member.</p>
+      <ul class="check-list">
+        <li>₦100,000 minimum — family or organisation</li>
+        <li>Spouse, children, and parents on one wallet</li>
+        <li>Group plans for schools, SMEs, and agencies</li>
+        <li>Team setup completed within 48 hours</li>
+      </ul>
+      <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p" style="width:fit-content">Get a Team Plan →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DISEASE CARDS -->
+<section class="disease" id="why">
+  <!-- Finance art sketch in background -->
+  <svg class="disease-art" viewBox="0 0 1200 500" fill="none" preserveAspectRatio="xMidYMid slice">
+    <polyline points="50,450 150,380 250,320 350,260 450,210 600,160 750,130 900,100 1050,75 1200,50" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/>
+    <polygon points="1200,50 1188,42 1188,58" fill="white" opacity=".6"/>
+    <circle cx="600" cy="250" r="180" stroke="white" stroke-width="1.5" opacity=".15" stroke-dasharray="8 14"/>
+    <rect x="50" y="350" width="30" height="100" rx="6" fill="white" opacity=".15"/>
+    <rect x="100" y="300" width="30" height="150" rx="6" fill="white" opacity=".15"/>
+    <rect x="150" y="250" width="30" height="200" rx="6" fill="white" opacity=".15"/>
+    <rect x="200" y="200" width="30" height="250" rx="6" fill="white" opacity=".15"/>
+    <circle cx="1100" cy="400" r="60" stroke="white" stroke-width="1.5" opacity=".1"/>
+    <line x1="1040" y1="400" x2="1160" y2="400" stroke="white" stroke-width="1" opacity=".15"/>
+    <line x1="1100" y1="340" x2="1100" y2="460" stroke="white" stroke-width="1" opacity=".15"/>
+  </svg>
+  <div class="dh rv">
+    <div class="sec-lbl sec-lbl-w">Why It Matters</div>
+    <h2 class="sec-h-w">The cost of doing nothing<br><em>is enormous</em></h2>
+    <p class="sec-p-w">Three conditions are draining Nigerian families of billions every year.</p>
+  </div>
+  <div class="d-grid">
+    <div class="d-card rv">
+      <div class="d-ico"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#00B4D0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10L10 4a4.24 4.24 0 016 6l-6 6a4.24 4.24 0 01-6-6z"/></svg></div>
+      <div class="d-num">8 Million</div>
+      <div class="d-title">Nigerians Living With Diabetes</div>
+      <p class="d-text">Nearly 3 in 4 are undiagnosed. Managing diabetes costs ₦80,000–₦200,000 per year — every year, for life.</p>
+    </div>
+    <div class="d-card rv d1">
+      <div class="d-ico"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#00B4D0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17S2 12 2 7a4 4 0 017-2.65A4 4 0 0118 7c0 5-8 10-8 10z"/></svg></div>
+      <div class="d-num">1 in 4</div>
+      <div class="d-title">Nigerian Adults Have Hypertension</div>
+      <p class="d-text">Silent. Lifelong medication required. Untreated it leads to stroke, heart failure, kidney damage — the most expensive outcomes in healthcare.</p>
+    </div>
+    <div class="d-card rv d2">
+      <div class="d-ico"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#00B4D0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L3 5v5c0 4.5 3 8 7 9 4-1 7-4.5 7-9V5l-7-3z"/></svg></div>
+      <div class="d-num">₦480,000</div>
+      <div class="d-title">Average Catastrophic Health Event</div>
+      <p class="d-text">A single hospitalisation can cost ₦300,000–₦2,000,000 out of pocket. Most Nigerian families are one illness from a financial crisis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHONE CARDS -->
+<section class="phone-sec">
+  <div class="rv" style="text-align:center">
+    <div class="sec-lbl" style="display:flex;justify-content:center">What you get</div>
+    <h2 style="font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;letter-spacing:-.025em;color:var(--navy);max-width:460px;margin:0 auto .8rem">Everything in one account</h2>
+    <p style="font-size:.93rem;color:var(--mid);line-height:1.88;max-width:420px;margin:0 auto">Three essential services. One wallet. No extra subscriptions.</p>
+  </div>
+  <div class="ph-grid">
+    <div class="ph-card phc1 rv">
+      <div class="ph-top pt1"><div class="phn"></div></div>
+      <div class="ph-body">
+        <div class="ph-tag ptg1">Health Savings</div>
+        <h3>Your Dedicated Health Wallet</h3>
+        <p>A savings account built exclusively for healthcare. Always accessible. Earns halal returns while it waits.</p>
+        <div class="ph-stat phs1"><div class="ph-sv">₦50,000</div><div class="ph-sl">Minimum to open · Individual account</div></div>
+      </div>
+      <div class="ph-bot"><div class="ph-bar"></div></div>
+    </div>
+    <div class="ph-card phc2 rv d1">
+      <div class="ph-top pt2"><div class="phn"></div></div>
+      <div class="ph-body">
+        <div class="ph-tag ptg2">Digital Health</div>
+        <h3>Telemedicine + Free Drug Delivery</h3>
+        <p>Consult verified Nigerian doctors anytime. Prescriptions instantly. Medications delivered free.</p>
+        <div class="ph-stat phs2"><div class="ph-sv">₦3,500</div><div class="ph-sl">Per consultation · Free drug delivery</div></div>
+      </div>
+      <div class="ph-bot"><div class="ph-bar"></div></div>
+    </div>
+    <div class="ph-card phc3 rv d2">
+      <div class="ph-top pt3"><div class="phn"></div></div>
+      <div class="ph-body">
+        <div class="ph-tag ptg3">Family & Organisation</div>
+        <h3>Family & Group Coverage</h3>
+        <p>One account. Spouse, children, parents. Schools, SMEs, and agencies with tailored group plans.</p>
+        <div class="ph-stat phs3"><div class="ph-sv">₦100,000</div><div class="ph-sl">Minimum · Family or organisation account</div></div>
+      </div>
+      <div class="ph-bot"><div class="ph-bar"></div></div>
+    </div>
+  </div>
+  <div class="team-box rv">
+    <h3>Enrolling your team or organisation?</h3>
+    <p>Group plans for schools, SMEs, and government agencies. We set your team up within 48 hours.</p>
+    <a href="https://span-hfintech.vercel.app/onboarding" class="btn-p" style="display:inline-flex">Get a Team Plan →</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testimonials">
+  <div class="testi-hd rv">
+    <div class="testi-big">Members who speak for themselves.</div>
+    <p style="font-size:.9rem;color:var(--mid);max-width:280px;line-height:1.82">Real Nigerians saving for health and accessing care without friction.</p>
+  </div>
+  <div class="tg rv d1">
+    <div class="tc">
+      <div class="tc-q">"</div>
+      <p class="tc-text">My father has hypertension. With Span we consult a doctor from home, get his medications delivered free, and his hospital visits are billed straight from the wallet. No forms. No waiting.</p>
+      <div class="tc-name">Chioma O.</div><div class="tc-role">Lagos — Social Media Manager</div>
+    </div>
+    <div class="tc">
+      <div class="tc-q">"</div>
+      <p class="tc-text">I switched from health insurance that kept rejecting my claims. With Span, my balance is mine. I use it when I need it. No approvals, no rejections.</p>
+      <div class="tc-name">Tunde A.</div><div class="tc-role">Abuja — IT Professional</div>
+    </div>
+    <div class="tc">
+      <div class="tc-q">"</div>
+      <p class="tc-text">We enrolled our school staff on Span. Costs dropped and for the first time our teachers feel genuinely looked after. The telemedicine alone saved us hours of lost working time.</p>
+      <div class="tc-name">Bello K.</div><div class="tc-role">Kano — School Administrator</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLARITY -->
+<section class="clarity">
+  <div class="cl-head rv">
+    <div class="sec-lbl sec-lbl-w" style="display:flex;justify-content:center">Clarity</div>
+    <h2 style="font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;letter-spacing:-.025em;color:#fff;max-width:560px;margin:0 auto .8rem;text-align:center;line-height:1.1">Span is not health insurance.<br><span style="color:var(--teal-xl)">It is something better.</span></h2>
+    <p style="font-size:.93rem;color:rgba(255,255,255,.45);max-width:420px;margin:0 auto;text-align:center;line-height:1.88">Your own money. Always accessible. Always growing. No claims. No rejection.</p>
+  </div>
+  <div class="cl-grid rv d1">
+    <div class="c-card yes">
+      <h3>Span Healthcare IS</h3>
+      <ul class="c-list">
+        <li>Your own money in a dedicated account you control</li>
+        <li>Active from day one — no waiting period</li>
+        <li>Covers pre-existing conditions immediately</li>
+        <li>No claim forms, no rejection, no approval delays</li>
+        <li>Balance earns halal returns quarterly</li>
+        <li>Covers your entire family under one account</li>
+      </ul>
+    </div>
+    <div class="c-card no">
+      <h3>What it replaces</h3>
+      <ul class="c-list">
+        <li>Health insurance with 30–90 day waiting periods</li>
+        <li>Claims rejected for pre-existing conditions</li>
+        <li>Premiums that disappear if unused</li>
+        <li>Approval processes before every hospital visit</li>
+        <li>Money locked away earning nothing</li>
+        <li>Funds you can never access or recover</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners rv">
+  <div class="p-lbl">Trusted Partners</div>
+  <div class="p-row">
+    <div class="p-item"><img src="log.png" alt="Windex" onerror="this.outerHTML='Windex'"></div>
+    <div class="p-item"><img src="amashpay black.png" alt="AMASHAPAY" onerror="this.outerHTML='AMASHAPAY'"></div>
+    <div class="p-item"><img src="BAC.jpg" alt="Boldage Consult" onerror="this.outerHTML='Boldage Consult'"></div>
+    <div class="p-item"><img src="Konooz.png" alt="Konooz Investment" onerror="this.outerHTML='Konooz Investment'"></div>
+  </div>
+</section>
+
+<!-- CTA — teal with coin art background -->
+<section class="cta">
+  <svg class="cta-art" viewBox="0 0 1200 400" fill="none" preserveAspectRatio="xMidYMid slice">
+    <!-- Scattered circles -->
+    <circle cx="100" cy="200" r="80" stroke="white" stroke-width="2" opacity=".5"/>
+    <circle cx="100" cy="200" r="55" stroke="white" stroke-width="1.5" stroke-dasharray="5 8" opacity=".4"/>
+    <!-- Coins -->
+    <ellipse cx="100" cy="200" rx="30" ry="8" fill="white" opacity=".3"/>
+    <text x="100" y="204" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" opacity=".6">₦</text>
+    <!-- Right side art -->
+    <circle cx="1100" cy="200" r="90" stroke="white" stroke-width="1.5" opacity=".3"/>
+    <path d="M1100 130 L1100 270" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+    <path d="M1030 200 L1170 200" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+    <!-- Growth line -->
+    <path d="M200 350 C350 280 500 200 700 140 C900 80 1000 60 1000 60" stroke="white" stroke-width="2" stroke-dasharray="6 10" stroke-linecap="round" opacity=".4"/>
+    <!-- Star dots -->
+    <circle cx="400" cy="80" r="4" fill="white" opacity=".3"/>
+    <circle cx="700" cy="50" r="3" fill="white" opacity=".25"/>
+    <circle cx="900" cy="70" r="4" fill="white" opacity=".3"/>
+  </svg>
+  <h2 class="rv">Start saving for your health today.</h2>
+  <p class="rv d1">Open your account in minutes. Active from day one. No waiting period.</p>
+  <div class="cta-btns rv d2">
+    <a href="https://span-hfintech.vercel.app/onboarding" class="btn-cw">Open an Account <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="tel:08036102499" class="btn-co">Call Us · 08036102499</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-grid">
+    <div>
+      <div class="f-brand">
+        <svg width="26" height="26" viewBox="0 0 120 120" fill="none"><polygon points="28,14 82,14 70,44 16,44" fill="#0B6577"/><path d="M70,44 C90,44 96,58 82,68 C68,78 24,72 24,86" stroke="#459DAF" stroke-width="11" stroke-linecap="round" fill="none"/><polygon points="38,76 92,76 80,106 26,106" fill="#459DAF"/></svg>
+        Span Healthcare
+      </div>
+      <p class="f-desc">A health savings and telemedicine platform reimagining healthcare financing for Nigerians.</p>
+    </div>
+    <div class="fc">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Health Savings</a></li>
+        <li><a href="#services">Telemedicine</a></li>
+        <li><a href="#services">Family Plans</a></li>
+        <li><a href="#services">Organisation Plans</a></li>
+        <li><a href="#services">Drug Delivery</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://span-hfintech.vercel.app/onboarding">Open an Account</a></li>
+        <li><a href="#">Partner With Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Contact</h4>
+      <div class="f-contact">
+        <div>No. 11B, Sambo Road, City Centre, Kaduna</div>
+        <div style="margin-top:5px">08036102499 · 09039222028</div>
+        <div style="margin-top:4px">info@spanhealthcare.com.ng</div>
+        <div style="margin-top:8px;font-size:.62rem;color:rgba(255,255,255,.14)">Mon–Fri: 8am–6pm · Sat: 9am–4pm</div>
+      </div>
+    </div>
+  </div>
+  <div class="f-bot">
+    <p>© 2025 Span Healthcare. All rights reserved.</p>
+    <div class="f-halal">Shariah-Compliant · SEC-Regulated Investment Partner</div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+function toggleMenu(){document.getElementById('mmenu').classList.toggle('open')}
+document.addEventListener('click',e=>{
+  const m=document.getElementById('mmenu'),b=document.getElementById('burger');
+  if(m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:.06,rootMargin:'0px 0px -24px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
+
