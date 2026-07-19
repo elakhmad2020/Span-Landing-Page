@@ -124,8 +124,8 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 .btn-cw:hover{box-shadow:0 10px 28px rgba(0,0,0,.18);transform:translateY(-2px)}
 
 /* ── SPLIT SECTIONS ── */
-.split{background:var(--white);padding:96px 5%}
-.split.alt{background:var(--cream)}
+.split{background:var(--white);padding:96px 5%;display:flex;align-items:center}
+.split.alt{background:var(--cream);display:flex;align-items:center}
 .split-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .split-inner.rev{direction:rtl}.split-inner.rev>*{direction:ltr}
 
@@ -207,33 +207,96 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 .team-box p{font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:1.6rem;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.8}
 
 /* ── TESTIMONIALS ── */
-.testi{background:var(--white);padding:96px 5%}
+.testi{
+  background:#ffffff;
+  background-image:
+    linear-gradient(rgba(45,184,212,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(45,184,212,.06) 1px,transparent 1px);
+  background-size:40px 40px;
+  padding:96px 5%;
+  position:relative;overflow:hidden;
+}
+.testi::before{
+  content:'';position:absolute;
+  right:-60px;top:50%;transform:translateY(-50%);
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(45,184,212,.08),transparent 70%);
+  pointer-events:none;
+}
 .testi-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
-.testi-big{font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--navy);max-width:340px}
+.testi-big{font-family:'Inter',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:#020C12;max-width:100%;margin-bottom:2.5rem}
 .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.tc{background:var(--cream);border-radius:20px;padding:30px;border:1.5px solid var(--border);transition:all .25s}
-.tc:hover{border-color:var(--teal);box-shadow:0 8px 28px rgba(69,157,175,.12)}
+.tc{background:rgba(45,184,212,.04);border-radius:16px;padding:30px;border:1px solid rgba(45,184,212,.1);transition:all .25s}
+.tc:hover{background:rgba(45,184,212,.09);border-color:rgba(45,184,212,.25);transform:translateY(-3px)}
 .tc-q{font-size:2.2rem;color:var(--teal);opacity:.4;line-height:1;margin-bottom:12px;font-family:'Inter',sans-serif}
 .tc-text{font-size:.85rem;color:var(--mid);line-height:1.85;font-style:italic;margin-bottom:18px}
 .tc-name{font-size:.8rem;font-weight:600;color:var(--navy);font-family:'Inter',sans-serif}
 .tc-role{font-size:.7rem;color:var(--light);margin-top:3px}
 
 /* ── CLARITY ── */
-.clarity{background:var(--navy);padding:96px 5% 60px;position:relative;overflow:hidden}
-.clarity::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(69,157,175,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(69,157,175,.07) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
-.cl-head{text-align:center;margin-bottom:3rem;position:relative;z-index:1}
-.cl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;position:relative;z-index:1}
-.c-card{border-radius:18px;padding:32px}
-.c-card.yes{background:rgba(69,157,175,.12);border:1.5px solid rgba(69,157,175,.3)}
-.c-card.no{background:rgba(255,255,255,.03);border:1.5px solid rgba(255,255,255,.07)}
-.c-card h3{font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;margin-bottom:18px}
-.c-card.yes h3{color:var(--teal-xl)}.c-card.no h3{color:rgba(255,255,255,.3)}
-.c-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.c-list li{display:flex;align-items:flex-start;gap:9px;font-size:.83rem;line-height:1.68}
-.c-card.yes .c-list li{color:rgba(255,255,255,.8)}.c-card.no .c-list li{color:rgba(255,255,255,.22);text-decoration:line-through}
-.c-list li::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:7px}
-.c-card.yes .c-list li::before{background:var(--teal)}.c-card.no .c-list li::before{background:rgba(255,255,255,.18)}
-
+.clarity{
+  background:#ffffff;
+  background-image:
+    linear-gradient(rgba(45,184,212,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(45,184,212,.06) 1px,transparent 1px);
+  background-size:40px 40px;
+  padding:96px 5%;
+  position:relative;overflow:hidden;
+}
+.clarity::before{
+  content:'';position:absolute;
+  left:-60px;top:50%;transform:translateY(-50%);
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(45,184,212,.1),transparent 70%);
+  pointer-events:none;
+}
+.clarity-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;
+  position:relative;z-index:1;
+}
+.clarity-phone{
+  position:relative;
+  display:flex;justify-content:center;
+  min-height:580px;
+}
+.clarity-phone-img{
+  height:560px;width:auto;
+  object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 32px 64px rgba(2,12,18,.2));
+  border-radius:32px;
+}
+.clarity-float{
+  position:absolute;
+  background:#fff;
+  border-radius:12px;
+  padding:10px 16px;
+  box-shadow:0 8px 24px rgba(2,12,18,.12);
+  border:1px solid rgba(45,184,212,.18);
+  white-space:nowrap;
+  z-index:2;
+}
+.clarity-float.f1{right:-10px;top:80px}
+.clarity-float.f2{right:-20px;bottom:160px}
+.clarity-float.f3{left:0;bottom:100px}
+.cf-val{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:700;color:#020C12;line-height:1}
+.cf-lbl{font-size:.6rem;color:#6A9DAA;text-transform:uppercase;letter-spacing:.08em;margin-top:4px;display:flex;align-items:center;gap:4px}
+.cf-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0}
+.clarity-content{display:flex;flex-direction:column;gap:1rem}
+.clarity-h{font-family:'Inter',sans-serif;font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:700;color:#020C12;line-height:1.12;letter-spacing:-.025em}
+.clarity-h em{font-style:normal;color:var(--teal)}
+.clarity-sub{font-size:.93rem;color:#3A6872;line-height:1.88;max-width:400px;font-family:'DM Sans',sans-serif}
+.clarity-notes{display:flex;flex-direction:column;gap:12px;margin-top:.5rem}
+.clarity-note{display:flex;align-items:flex-start;gap:12px;padding:16px;border-radius:12px;background:rgba(45,184,212,.04);border:1px solid rgba(45,184,212,.1);transition:all .25s}
+.clarity-note:hover{background:rgba(45,184,212,.09);border-color:rgba(45,184,212,.25);transform:translateX(4px)}
+.cn-ico{width:38px;height:38px;border-radius:10px;background:rgba(45,184,212,.12);border:1px solid rgba(45,184,212,.2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.cn-title{font-size:.88rem;font-weight:600;color:#020C12;margin-bottom:4px;font-family:'Inter',sans-serif}
+.cn-text{font-size:.78rem;color:#3A6872;line-height:1.7;font-family:'DM Sans',sans-serif}
+@media(max-width:900px){
+  .clarity-inner{grid-template-columns:1fr}
+  .clarity-phone{display:none}
+}
 /* ── PARTNERS ── */
 .partners{background:var(--cream);padding:48px 5%;border-top:1px solid var(--border);text-align:center}
 .p-lbl{font-size:.62rem;font-weight:600;color:var(--light);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.8rem;font-family:'Inter',sans-serif}
@@ -394,8 +457,9 @@ footer{
     <img src="img/Asset 2.png" alt="Span Healthcare" style="height:40px;width:auto;object-fit:contain">
   </a>
   <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#why">Why Span?</a></li>
+    <li><a href="#whyspan">Why Span</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
   </ul>
   <div class="nav-r">
@@ -406,9 +470,10 @@ footer{
 </header>
 
 <div class="mmenu" id="mmenu">
-  <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#why" onclick="toggleMenu()">Why Span?</a>
-  <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
+  <a href="#home" onclick="toggleMenu()">Home</a>
+<a href="#services" onclick="toggleMenu()">Services</a>
+<a href="#whyspan" onclick="toggleMenu()">Why Span</a>
+<a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
   <a href="https://span-hfintech.vercel.app" class="btn-cta">Open an Account</a>
 </div>
 
@@ -416,11 +481,11 @@ footer{
 <div class="strip">
   <div class="strip-track">
     <div class="si">Health Savings Wallet</div><div class="si">Telemedicine ₦3,500</div>
-    <div class="si">Free Drug Delivery</div><div class="si">Halal Investment Returns</div>
+    <div class="si">Free Drug Delivery</div><div class="si">Non-interest Returns</div>
     <div class="si">No Waiting Period</div><div class="si">100+ Providers</div>
     <div class="si">Organisation Plans</div><div class="si">Family Coverage</div>
     <div class="si">Health Savings Wallet</div><div class="si">Telemedicine ₦3,500</div>
-    <div class="si">Free Drug Delivery</div><div class="si">Halal Investment Returns</div>
+    <div class="si">Free Drug Delivery</div><div class="si">Non-interest Returns</div>
     <div class="si">No Waiting Period</div><div class="si">100+ Providers</div>
     <div class="si">Organisation Plans</div><div class="si">Family Coverage</div>
   </div>
@@ -442,7 +507,7 @@ footer{
     <div class="hero-stats">
       <div class="hs"><div class="hs-v"><span>₦50k</span></div><div class="hs-l">Individual minimum</div></div>
       <div class="hs"><div class="hs-v"><span>₦3,500</span></div><div class="hs-l">Telemedicine fee</div></div>
-      <div class="hs"><div class="hs-v"><span>0%</span></div><div class="hs-l">Riba · Halal</div></div>
+      <div class="hs"><div class="hs-v"><span>0%</span></div><div class="hs-l">Riba</div></div>
     </div>
   </div>
 </div>
@@ -663,7 +728,7 @@ footer{
 </section>
 
 <!-- STATEMENT — teal background with coin art sketch overlay -->
-<section class="statement">
+<section class="statement" id="statement">
   <!-- Coin/growth art in background -->
   <svg class="statement-art" viewBox="0 0 1200 400" fill="none" preserveAspectRatio="xMidYMid slice">
     <!-- Scattered coins -->
@@ -709,11 +774,11 @@ footer{
     <div class="split-content">
       <div class="sec-lbl">Health Savings Wallet</div>
       <h2 class="sec-h">Your money.<br><em>Always yours.</em></h2>
-      <p class="sec-p">A dedicated account for your healthcare costs. Your balance is always accessible for consultations, hospital visits, and medications — and earns halal returns while it waits.</p>
+      <p class="sec-p">A dedicated account for your healthcare costs. Your balance is always accessible for consultations, hospital visits, and medications — and earns non-interest returns while it waits.</p>
       <ul class="check-list">
         <li>No waiting period — active from day one</li>
         <li>Pre-existing conditions covered immediately</li>
-        <li>50% invested in Konooz halal fund — returns quarterly</li>
+        <li>Idle balance are earning returns periodically</li>
         <li>Span pays hospitals directly — no forms needed</li>
       </ul>
       <a href="https://span-hfintech.vercel.app" class="btn-p" style="width:fit-content">Open an Account →</a>
@@ -816,7 +881,7 @@ footer{
 </section>
 
 <!-- PHONE CARDS -->
-<section class="phone-sec">
+<section class="phone-sec" id="plans">
   <div class="rv" style="text-align:center">
     <div class="sec-lbl" style="display:flex;justify-content:center">What you get</div>
     <h2 style="font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;letter-spacing:-.025em;color:var(--navy);max-width:460px;margin:0 auto .8rem">Everything in one account</h2>
@@ -828,7 +893,7 @@ footer{
       <div class="ph-body">
         <div class="ph-tag ptg1">Health Savings</div>
         <h3>Your Dedicated Health Wallet</h3>
-        <p>A savings account built exclusively for healthcare. Always accessible. Earns halal returns while it waits.</p>
+        <p>A savings account built exclusively for healthcare. Always accessible. Earns non-interest returns while it waits.</p>
         <div class="ph-stat phs1"><div class="ph-sv">₦50,000</div><div class="ph-sl">Minimum to open · Individual account</div></div>
       </div>
       <div class="ph-bot"><div class="ph-bar"></div></div>
@@ -860,12 +925,80 @@ footer{
     <a href="https://span-hfintech.vercel.app" class="btn-p" style="display:inline-flex">Get a Team Plan →</a>
   </div>
 </section>
+<!-- CLARITY -->
+<section class="clarity" id="whyspan">
+  <div class="clarity-inner rv">
+
+    <!-- LEFT — Phone image -->
+    <div class="clarity-phone">
+      <img src="img/CTA1.png" alt="Span Healthcare app" class="clarity-phone-img">
+     
+      <div class="clarity-float f2">
+        <div class="cf-val">+₦3,200</div>
+        <div class="cf-lbl"><span class="cf-dot"></span>From investment returns</div>
+      </div>
+      <div class="clarity-float f3">
+        <div class="cf-val">0%</div>
+        <div class="cf-lbl">Interest</div>
+      </div>
+    </div>
+
+    <!-- RIGHT — Content -->
+    <div class="clarity-content">
+      <div class="sec-lbl" style="color:var(--teal)">Why Span</div>
+      <h2 class="clarity-h">Span offers a designated Health Savings Account built for individuals and families.<br><em>Something better.</em></h2>
+      <p class="clarity-sub">Your own money. Always accessible. Always growing. No claims. No rejection.</p>
+
+      <div class="clarity-notes">
+        <div class="clarity-note">
+          <div class="cn-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2DB8D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7L12 2z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cn-title">Active from day one</div>
+            <div class="cn-text">No waiting periods. No approval queues. Deposit and your wallet is live immediately — pre-existing conditions covered.</div>
+          </div>
+        </div>
+        <div class="clarity-note">
+          <div class="cn-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2DB8D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="3"/>
+              <path d="M16 14a1 1 0 1 0 2 0 1 1 0 0 0-2 0"/>
+              <path d="M2 10h20M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cn-title">Your money, always yours</div>
+            <div class="cn-text">No claims, no rejections. Pay directly from your wallet at any partner provider with no forms.</div>
+          </div>
+        </div>
+        <div class="clarity-note">
+          <div class="cn-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2DB8D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cn-title">Earns returns periodically</div>
+            <div class="cn-text">Your savings is growing your balance while it waits. 0% Riba.</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://span-hfintech.vercel.app" class="btn-p" style="width:fit-content;display:inline-flex;margin-top:1.5rem">Open an Account →</a>
+    </div>
+
+  </div>
+</section>
 
 <!-- TESTIMONIALS -->
 <section class="testi" id="testimonials">
   <div class="testi-hd rv">
-    <div class="testi-big">Members who speak for themselves.</div>
-    <p style="font-size:.9rem;color:var(--mid);max-width:280px;line-height:1.82">Real Nigerians saving for health and accessing care without friction.</p>
+    <div class="testi-big">Real Nigerians saving for health and accessing care without friction.</div>
   </div>
   <div class="tg rv d1">
     <div class="tc">
@@ -886,41 +1019,8 @@ footer{
   </div>
 </section>
 
-<!-- CLARITY -->
-<section class="clarity">
-  <div class="cl-head rv">
-    <div class="sec-lbl sec-lbl-w" style="display:flex;justify-content:center">Clarity</div>
-    <h2 style="font-family:'Inter',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;letter-spacing:-.025em;color:#fff;max-width:560px;margin:0 auto .8rem;text-align:center;line-height:1.1">Span offers a designated Health Savings Account (HSA) built for individuals and families.<br><span style="color:var(--teal-xl)">It is something better.</span></h2>
-    <p style="font-size:.93rem;color:rgba(255,255,255,.45);max-width:420px;margin:0 auto;text-align:center;line-height:1.88">Your own money. Always accessible. Always growing. No claims. No rejection.</p>
-  </div>
-  <div class="cl-grid rv d1">
-    <div class="c-card yes">
-      <h3>Span Healthcare IS</h3>
-      <ul class="c-list">
-        <li>Your own money in a dedicated account you control</li>
-        <li>Active from day one — no waiting period</li>
-        <li>Covers pre-existing conditions immediately</li>
-        <li>No claim forms, no rejection, no approval delays</li>
-        <li>Balance earns halal returns quarterly</li>
-        <li>Covers your entire family under one account</li>
-      </ul>
-    </div>
-    <div class="c-card no">
-      <h3>What it replaces</h3>
-      <ul class="c-list">
-        <li>Health insurance with 30–90 day waiting periods</li>
-        <li>Claims rejected for pre-existing conditions</li>
-        <li>Premiums that disappear if unused</li>
-        <li>Approval processes before every hospital visit</li>
-        <li>Money locked away earning nothing</li>
-        <li>Funds you can never access or recover</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- CTA — teal with coin art background -->
-<section class="cta">
+<section class="cta" id="cta">
   <div class="cta-inner">
     <div class="cta-counters">
       <div class="c-box">
@@ -933,7 +1033,7 @@ footer{
       </div>
     </div>
     <div class="cta-right">
-      <div class="halal-tag"><span class="hdot"></span>Halal Certified</div>
+      <div class="halal-tag"><span class="hdot"></span>Non-interest</div>
       <h2 class="cta-h">Your health fund<br>starts <em>today.</em></h2>
       <p class="cta-sub">The only Sharia-compliant health savings platform in Nigeria. Open your account in minutes.</p>
       <a href="https://span-hfintech.vercel.app" class="btn-cw">Open an Account →</a>
