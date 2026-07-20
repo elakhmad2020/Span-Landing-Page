@@ -96,14 +96,29 @@ body{
 .policy-divider{height:1px;background:rgba(45,184,212,.12);margin:2.5rem 0}
 
 /* ── FOOTER ── */
-footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--teal:#459DAF;--teal-d:#2d7f91;--teal-l:#5bbfcf;--teal-xl:#98B7B9;--light:#6A9DAA;--border:#2a5a66}
-.f-grid{display:grid;grid-template-columns:repeat(3,200px);justify-content:center;gap:4rem;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
-.fc h4{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px;text-align:center}
-.fc ul{list-style:none;text-align:center}
-.fc li{margin-bottom:10px}
+footer{
+  background:#060e11;padding:60px 5% 28px;
+  border-top:3px solid #459DAF;
+  --teal:#459DAF;
+  --teal-d:#2d7f91;
+  --teal-l:#5bbfcf;
+  --teal-xl:#98B7B9;
+  --light:#6A9DAA;
+  --border:#2a5a66;
+}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:2.8rem;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
+.f-brand{font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--teal-xl);display:flex;align-items:center;gap:9px}
+.f-desc{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.88;max-width:220px;margin-top:12px;font-family:'DM Sans',sans-serif}
+.fc h4{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px}
+.fc ul{list-style:none}
+.fc li{margin-bottom:9px}
 .fc a{font-size:.85rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;font-family:'DM Sans',sans-serif}
-.fc a:hover{color:#5bbfcf}
-.f-contact{font-size:.84rem;color:rgba(255,255,255,.65);line-height:2.1;font-family:'DM Sans',sans-serif;text-align:center}
+.fc a:hover{color:var(--teal-xl)}
+.f-contact{font-size:.84rem;color:rgba(255,255,255,.65);line-height:2.1;font-family:'DM Sans',sans-serif}
+.f-bot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:1rem}
+.f-bot p{font-size:.64rem;color:rgba(255,255,255,.55);font-family:'DM Sans',sans-serif}
+.f-halal{font-size:.62rem;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif}
+.f-halal::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);opacity:.5}
 
 /* Legal */
 .legal{background:#060e11;border-top:1px solid rgba(255,255,255,.06);padding:32px 5%}
@@ -131,7 +146,6 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
   </a>
   <div class="nav-r">
     <a href="https://span-hfintech.vercel.app" class="btn-ghost">Log in</a>
-    <a href="https://span-hfintech.vercel.app" class="btn-cta">Open an Account</a>
   </div>
 </header>
 
@@ -337,14 +351,20 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
 <!-- FOOTER -->
 <footer>
   <div class="f-grid">
+    <div>
+      <div class="f-brand">
+        <img src="img/Asset 1.png" alt="Span Healthcare" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1)">
+      </div>
+      <p class="f-desc">A health savings and telemedicine platform reimagining healthcare financing for Nigerians.</p>
+    </div>
     <div class="fc">
       <h4>Services</h4>
       <ul>
-        <li><a href="index.html#services">Health Savings</a></li>
-        <li><a href="index.html#services">Telemedicine</a></li>
-        <li><a href="index.html#services">Family Plans</a></li>
-        <li><a href="index.html#services">Organisation Plans</a></li>
-        <li><a href="index.html#services">Drug Delivery</a></li>
+        <li><a href="#services">Health Savings</a></li>
+        <li><a href="#services">Telemedicine</a></li>
+        <li><a href="#services">Family Plans</a></li>
+        <li><a href="#services">Organisation Plans</a></li>
+        <li><a href="#services">Drug Delivery</a></li>
       </ul>
     </div>
     <div class="fc">
@@ -352,7 +372,7 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
       <ul>
         <li><a href="https://span-hfintech.vercel.app">Open an Account</a></li>
         <li><a href="#">Partner With Us</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms of Use</a></li>
       </ul>
     </div>
@@ -360,8 +380,8 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
       <h4>Contact</h4>
       <div class="f-contact">
         <div>No. 11B, Sambo Road, City Centre, Kaduna</div>
-        <div style="margin-top:5px">08036102499 · 09039222028</div>
-        <div style="margin-top:4px">info@spanhealthcare.com.ng</div>
+        <div style="margin-top:5px">09039222028</div>
+        <div style="margin-top:4px">info@span-healthcare.com</div>
       </div>
     </div>
   </div>
@@ -369,18 +389,16 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
 
 <!-- LEGAL -->
 <div class="legal">
-  <div class="legal-inner">
-    <div class="legal-text">
-      <p>Span Healthcare Limited is a technology platform registered with the Corporate Affairs Commission of Nigeria (RC: [Your RC Number]). Span Healthcare operates a Sharia-compliant health savings model structured on Wakala-Mudarabah principles, supervised by our Sharia Advisory Board.</p>
-      <p>Span Healthcare is not a bank, insurance company, or licensed fund manager. The Konooz Investment Pool is a Mudarabah profit-sharing arrangement and is not a guaranteed investment product. Any projected or historical returns are illustrative in nature and do not constitute a guarantee of future performance. Returns are subject to the actual performance of the underlying halal investment instruments.</p>
-      <p>By creating a Span Healthcare account you accept our <a href="#">Terms of Use</a> and <a href="privacy.html">Privacy Policy</a>. Your health savings data is handled in accordance with the Nigeria Data Protection Act 2023.</p>
-      <p class="legal-badges">[NDPC Compliant — badge to be added once audited] &nbsp;·&nbsp; Google Play and the Google Play logo are trademarks of Google LLC. Apple, the Apple logo, and iPhone are trademarks of Apple Inc. registered in the U.S.</p>
-      <div class="legal-bottom">
-        <p class="legal-copy">© 2026 Span Healthcare Limited. All rights reserved. RC [Number].</p>
-        <div class="legal-halal">Shariah-Compliant · SEC-Regulated Investment Partner</div>
-      </div>
+  <div class="legal-text">
+    <p>Span Healthcare Limited is a technology platform registered with the Corporate Affairs Commission of Nigeria (RC: 8276003). Span Healthcare operates a Sharia-compliant health savings model structured on Wakala-Mudarabah principles, supervised by our Sharia Advisory Board.</p>
+    <p>Span Healthcare is not a bank, insurance company, or licensed fund manager. The Investment Pool is a Mudarabah profit-sharing arrangement and is not a guaranteed investment product. Any projected or historical returns are illustrative in nature and do not constitute a guarantee of future performance. Returns are subject to the actual performance of the underlying halal investment instruments.</p>
+    <p>By creating a Span Healthcare account you accept our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>. Your health savings data is handled in accordance with the Nigeria Data Protection Act 2023.</p>
+    <div class="legal-bottom">
+      <p class="legal-copy">© 2026 Span Healthcare Limited. All rights reserved.</p>
+      <div class="legal-halal">Shariah-Compliant · SEC-Regulated Investment Partner</div>
     </div>
   </div>
+</div>
 </div>
 
 <script>
