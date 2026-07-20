@@ -35,7 +35,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
 .nav-wm{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;color:var(--navy);letter-spacing:-.01em}
 .nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none}
-.nav-links a{font-size:.8rem;font-weight:500;color:var(--mid);text-decoration:none;transition:color .2s}
+.nav-links a{font-size:.95rem;font-weight:500;color:var(--mid);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--teal)}
 .nav-r{display:flex;gap:8px;align-items:center}
 .btn-ghost{font-size:.8rem;font-weight:500;color:var(--text);text-decoration:none;padding:8px 16px;font-family:'Inter',sans-serif;border:1.5px solid var(--border);border-radius:8px;transition:all .2s}
@@ -448,6 +448,19 @@ footer{
 }
 @media(max-width:560px){.f-grid{grid-template-columns:1fr}}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#060e11}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
+
+.legal{background:#060e11;border-top:1px solid rgba(255,255,255,.06);padding:32px 5%}
+.legal-inner{display:flex;gap:2.4rem;align-items:flex-start}
+.legal-logo{flex-shrink:0;padding-top:3px}
+.legal-text{display:flex;flex-direction:column;gap:10px}
+.legal-text p{font-size:.68rem;color:rgba(255,255,255,.28);line-height:1.85;font-family:'DM Sans',sans-serif}
+.legal-text a{color:rgba(255,255,255,.4);text-decoration:underline;transition:color .2s}
+.legal-text a:hover{color:var(--teal)}
+.legal-badges{color:rgba(255,255,255,.2)!important;font-size:.62rem!important}
+.legal-copy{color:rgba(255,255,255,.35)!important;font-size:.66rem!important;font-weight:500}
+.legal-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(255,255,255,.06);margin-top:4px;flex-wrap:wrap;gap:.5rem}
+.legal-halal{font-size:.62rem;color:rgba(255,255,255,.28);font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:6px}
+.legal-halal::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);opacity:.5}
 </style>
 </head>
 <body>
@@ -1075,15 +1088,24 @@ footer{
         <div>No. 11B, Sambo Road, City Centre, Kaduna</div>
         <div style="margin-top:5px">09039222028</div>
         <div style="margin-top:4px">info@span-healthcare.com</div>
-        <div style="margin-top:8px;font-size:.62rem;color:rgba(255,255,255,.14)">Mon–Fri: 8am–6pm · Sat: 9am–4pm</div>
       </div>
     </div>
   </div>
-  <div class="f-bot">
-    <p>© 2025 Span Healthcare. All rights reserved.</p>
-    <div class="f-halal">Shariah-Compliant · SEC-Regulated Investment Partner</div>
-  </div>
 </footer>
+
+<!-- LEGAL DISCLAIMER -->
+<div class="legal">
+    <div class="legal-text">
+      <p>Span Healthcare Limited is a technology platform registered with the Corporate Affairs Commission of Nigeria (RC: 8276003). Span Healthcare operates a Sharia-compliant health savings model structured on Wakala-Mudarabah principles, supervised by our Sharia Advisory Board.</p>
+      <p>Span Healthcare is not a bank, insurance company, or licensed fund manager. The Investment Pool is a Mudarabah profit-sharing arrangement and is not a guaranteed investment product. Any projected or historical returns are illustrative in nature and do not constitute a guarantee of future performance. Returns are subject to the actual performance of the underlying halal investment instruments.</p>
+      <p>By creating a Span Healthcare account you accept our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>. Your health savings data is handled in accordance with the Nigeria Data Protection Act 2023.</p>
+      <div class="legal-bottom">
+        <p class="legal-copy">© 2026 Span Healthcare Limited. All rights reserved.</p>
+        <div class="legal-halal">Shariah-Compliant · SEC-Regulated Investment Partner</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 const nav=document.getElementById('nav');
