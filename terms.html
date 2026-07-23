@@ -447,8 +447,11 @@ html{background:#060e11}
 </div>
 
 <script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
-</script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+  function toggleMenu(){
+    document.getElementById('mmenu').classList.toggle('open');
+  }
+  </script>
 </body>
 </html>
