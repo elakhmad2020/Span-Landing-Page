@@ -33,7 +33,7 @@
       <li><a href="#testimonials">Testimonials</a></li>
     </ul>
     <div class="nav-r">
-      <a href="maintenance.html" class="btn-cta nav-login">Log in</a>
+      <a href="maintenance" class="btn-cta nav-login">Log in</a>
       <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     </div>
   </header>
@@ -43,7 +43,7 @@
     <a href="#services" onclick="toggleMenu()">Services</a>
     <a href="#whyspan" onclick="toggleMenu()">Why Span</a>
     <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
-    <a href="maintenance.html" class="btn-cta">Open an Account</a>
+    <a href="maintenance" class="btn-cta">Open an Account</a>
   </div>
 
   <!-- MARQUEE -->
@@ -80,8 +80,8 @@
         <p class="hero-sub">One platform. All your health savings needs. Trusted by individuals, families, and
           organisations across Nigeria.</p>
         <div class="hero-btns">
-          <a href="maintenance.html" class="btn-p">Open an Account <svg width="13" height="13"
-              viewBox="0 0 14 14" fill="none">
+          <a href="maintenance" class="btn-p">Open an Account <svg width="13" height="13" viewBox="0 0 14 14"
+              fill="none">
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg></a>
@@ -417,7 +417,7 @@
           <li>Idle balance are earning returns periodically</li>
           <li>Span pays hospitals directly — no forms needed</li>
         </ul>
-        <a href="maintenance.html" class="btn-p" style="width:fit-content">Open an Account →</a>
+        <a href="maintenance" class="btn-p" style="width:fit-content">Open an Account →</a>
       </div>
     </div>
   </section>
@@ -451,7 +451,7 @@
           <li>MDCN-registered Nigerian doctors</li>
           <li>24/7 access — no appointment booking needed</li>
         </ul>
-        <a href="maintenance.html" class="btn-p" style="width:fit-content">Start a Consultation →</a>
+        <a href="maintenance" class="btn-p" style="width:fit-content">Start a Consultation →</a>
       </div>
     </div>
   </section>
@@ -485,7 +485,7 @@
           <li>Group plans for schools, SMEs, and agencies</li>
           <li>Team setup completed within 48 hours</li>
         </ul>
-        <a href="maintenance.html" class="btn-p" style="width:fit-content">Get a Team Plan →</a>
+        <a href="maintenance" class="btn-p" style="width:fit-content">Get a Team Plan →</a>
       </div>
     </div>
   </section>
@@ -680,8 +680,8 @@
           </div>
         </div>
 
-        <a href="maintenance.html" class="btn-p"
-          style="width:fit-content;display:inline-flex;margin-top:1.5rem">Open an Account →</a>
+        <a href="maintenance" class="btn-p" style="width:fit-content;display:inline-flex;margin-top:1.5rem">Open
+          an Account →</a>
       </div>
 
     </div>
@@ -737,7 +737,7 @@
         <h2 class="cta-h">Your health fund<br>starts <em>today.</em></h2>
         <p class="cta-sub">The only Sharia-compliant health savings platform in Nigeria. Open your account in
           minutes.</p>
-        <a href="maintenance.html" class="btn-cw">Open an Account →</a>
+        <a href="maintenance" class="btn-cw">Open an Account →</a>
       </div>
     </div>
   </section>
