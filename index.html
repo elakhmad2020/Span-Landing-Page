@@ -37,7 +37,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 .nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none}
 .nav-links a{font-size:.95rem;font-weight:500;color:var(--mid);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--teal)}
-.nav-r{display:flex;gap:8px;align-items:center}
+.nav-r{display:flex;align-items:center;gap:12px}
 .btn-ghost{font-size:.8rem;font-weight:500;color:var(--text);text-decoration:none;padding:8px 16px;font-family:'Inter',sans-serif;border:1.5px solid var(--border);border-radius:8px;transition:all .2s}
 .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
 .btn-cta{padding:9px 22px;background:var(--teal);color:#fff;border-radius:8px;font-size:.8rem;font-weight:600;text-decoration:none;font-family:'Inter',sans-serif;transition:all .2s}
@@ -59,6 +59,16 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 }
 .hero-left{position:relative;z-index:2;padding-right:5%}
 .hero-right{position:relative;z-index:1;height:100%;min-height:580px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+.h1-dark{color:#020C12}
+.h1-shine{
+  font-style:normal;
+  background:linear-gradient(135deg,#2DB8D4 0%,#00E5FF 40%,#2DB8D4 60%,#0099B8 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 20px rgba(45,184,212,.35));
+}
 
 /* ── HERO ART ANIMATIONS ── */
 @keyframes float-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
@@ -112,7 +122,7 @@ h1,h2,h3,h4{font-family:'Inter',sans-serif}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
 footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--teal:#459DAF;--teal-d:#2d7f91;--teal-l:#5bbfcf;--teal-xl:#98B7B9;--light:#6A9DAA;--border:#2a5a66}
-.f-grid{display:grid;grid-template-columns:repeat(3,200px);justify-content:center;gap:4rem;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
+.f-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;justify-content:center;gap:3rem;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06);max-width:1100px;margin:0 auto}
 .f-brand{font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:#5bbfcf;display:flex;align-items:center;gap:9px}
 .f-desc{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.88;max-width:220px;margin-top:12px;font-family:'DM Sans',sans-serif}
 .fc h4{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px;text-align:center}
@@ -198,20 +208,37 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
 .si{padding:0 36px;border-right:1px solid rgba(255,255,255,.12);font-size:.68rem;font-weight:600;color:rgba(255,255,255,.75);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;font-family:'Inter',sans-serif}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ── STATEMENT — full teal background with art overlay ── */
-.statement{background:var(--teal);padding:96px 5%;position:relative;overflow:hidden}
-/* Art sketch background inside statement */
-.statement-art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.12}
-.st-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
-.st-h{font-family:'Inter',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.08;letter-spacing:-.03em;color:#fff}
-.st-h em{font-style:normal;color:var(--teal-xl)}
-.st-body{font-size:.95rem;color:rgba(255,255,255,.68);line-height:1.9}
-.st-body p{margin-bottom:1rem}
-.btn-cw{padding:13px 32px;background:#fff;color:var(--teal-d);border-radius:9px;font-size:.9rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;transition:all .22s;margin-top:1.8rem}
-.btn-cw:hover{box-shadow:0 10px 28px rgba(0,0,0,.18);transform:translateY(-2px)}
+/* ── STATEMENT ── */
+.statement{padding:0;overflow:hidden}
+.st-inner{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.st-left{
+  background:#020C12;
+  padding:64px 52px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+  clip-path:polygon(0 0,92% 0,100% 100%,0 100%);
+}
+.st-left::before{content:'';position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:rgba(45,184,212,.06);pointer-events:none}
+.st-lbl{font-size:.6rem;font-weight:700;color:#2DB8D4;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;font-family:'Inter',sans-serif}
+.st-h{font-family:'Inter',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:900;line-height:1.04;letter-spacing:-.035em;color:#fff}
+.st-h em{font-style:normal;color:#2DB8D4}
+.st-sub{font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.85;margin-top:1.2rem;font-family:'DM Sans',sans-serif}
+.st-right{position:relative;overflow:hidden;min-height:480px}
+.st-photo{position:absolute;inset:0}
+.st-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.st-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(2,12,18,.85) 0%,rgba(2,12,18,.3) 50%,rgba(2,12,18,.05) 100%);z-index:1}
+.st-accent{position:absolute;top:0;left:0;right:0;height:4px;background:#2DB8D4;z-index:2}
+.st-caption{position:absolute;bottom:90px;left:20px;right:20px;z-index:2;text-align:center;font-size:.78rem;color:rgba(255,255,255,.5);font-family:'DM Sans',sans-serif;font-style:italic}
+.st-stats{position:absolute;bottom:0;left:0;right:0;z-index:2;display:flex;background:rgba(2,12,18,.6);backdrop-filter:blur(8px);border-top:1px solid rgba(45,184,212,.25)}
+.st-stat{flex:1;text-align:center;padding:18px 12px;border-right:1px solid rgba(45,184,212,.2)}
+.st-stat:last-child{border-right:none}
+.st-sv{font-family:'Inter',sans-serif;font-size:1.7rem;font-weight:800;color:#2DB8D4;line-height:1;letter-spacing:-.02em}
+.st-sl{font-size:.58rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.09em;margin-top:4px}
+.btn-cw{padding:13px 32px;background:var(--teal);color:#020C12;border-radius:9px;font-size:.9rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;transition:all .22s}
+.btn-cw:hover{background:var(--teal-d);transform:translateY(-2px)}
 
 /* ── SPLIT SECTIONS ── */
-.split{background:var(--white);padding:96px 5%;display:flex;align-items:center}
+.split{background:var(--white);padding:60px 5%;display:flex;align-items:center}
 .split.alt{background:var(--cream);display:flex;align-items:center}
 .split-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .split-inner.rev{direction:rtl}.split-inner.rev>*{direction:ltr}
@@ -257,7 +284,7 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
 .sec-p-w{font-size:.93rem;color:rgba(255,255,255,.5);line-height:1.88;max-width:420px}
 
 /* ── PHONE CARDS ── */
-.phone-sec{background:var(--cream);padding:96px 5%}
+.phone-sec{background:var(--cream);padding:60px 5%}
 .ph-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem}
 .ph-card{border-radius:32px;overflow:hidden;border:2px solid;transition:all .3s;box-shadow:0 12px 40px rgba(11,42,48,.08)}
 .ph-card:hover{transform:translateY(-7px)}
@@ -401,6 +428,7 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
   /* NAV */
   #nav{height:64px;padding:0 5%}
   .nav-links{display:none}
+  .nav-login{display:none}
   .burger{display:flex}
   .burger span{background:#020C12}
   .mmenu{top:64px;background:#fff;border-top:2px solid rgba(45,184,212,.15)}
@@ -422,16 +450,21 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
   .hero-stats{justify-content:center;gap:1.5rem}
   .hero-badge{margin:0 auto 1.2rem}
 
+  /* STATEMENT */
+.st-inner{grid-template-columns:1fr;min-height:auto}
+.st-left{clip-path:none;padding:48px 5%}
+.st-right{min-height:400px}
+
   /* SPLIT SECTIONS */
   .split{padding:40px 5%;min-height:auto!important}
   .split-inner,.split-inner.rev{display:flex!important;flex-direction:column!important;direction:ltr;gap:1.6rem;min-height:auto!important;width:100%!important}
-  .split-img{min-height:380px!important;max-height:480px!important;border-radius:16px;width:100%;margin:0}
-  .split-text{width:100%!important;max-width:100%!important;padding:0;min-height:auto!important;box-sizing:border-box}
+  .split-img{min-height:560px!important;max-height:680px!important;border-radius:16px;width:100%;margin:0;object-fit:cover}
+.art-tile{min-height:460px!important;max-height:580px!important;border-radius:16px;width:100%;margin:0}
   .split-text p{text-align:justify;width:100%}
   .split-body{text-align:justify}
   .split-checks{width:100%}
   .split-check{width:100%}
-  .art-tile{min-height:280px!important;max-height:360px!important;border-radius:16px;width:100%;margin:0}
+  .art-tile{min-height:380px!important;max-height:500px!important;border-radius:16px;width:100%;margin:0}
 
   /* BUTTONS */
   .btn-p,.btn-o,.btn-cw{width:100%!important;display:block!important;text-align:center!important;justify-content:center}
@@ -530,7 +563,8 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
     <li><a href="#testimonials">Testimonials</a></li>
   </ul>
   <div class="nav-r">
-    <a href="https://span-hfintech.vercel.app" class="btn-ghost">Log in/Register</a>
+    <a href="https://span-hfintech.vercel.app" class="btn-cta nav-login">Log in</a>
+    <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
   <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </header>
@@ -564,7 +598,7 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
 <!-- LEFT — text content -->
 <div class="hero-left">
   <div class="hero-content rv">
-    <h1>Save for your health.<br><em>Before you need it.</em></h1>
+    <h1><span class="h1-dark">Save for your health.</span><br><em class="h1-shine">Before you need it.</em></h1>
     <p class="hero-sub">One platform. All your health savings needs. Trusted by individuals, families, and organisations across Nigeria.</p>
     <div class="hero-btns">
       <a href="https://span-hfintech.vercel.app" class="btn-p">Open an Account <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -793,36 +827,32 @@ footer{background:#060e11;padding:60px 5% 28px;border-top:3px solid #459DAF;--te
 </div>
 </section>
 
-<!-- STATEMENT — teal background with coin art sketch overlay -->
+<!-- STATEMENT -->
 <section class="statement" id="statement">
-  <!-- Coin/growth art in background -->
-  <svg class="statement-art" viewBox="0 0 1200 400" fill="none" preserveAspectRatio="xMidYMid slice">
-    <!-- Scattered coins -->
-    <ellipse cx="100" cy="200" rx="50" ry="14" stroke="white" stroke-width="1.5"/>
-    <ellipse cx="100" cy="186" rx="50" ry="14" stroke="white" stroke-width="1.5"/>
-    <rect x="50" y="186" width="100" height="14" fill="white" opacity=".3"/>
-    <text x="100" y="192" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">₦</text>
-    <!-- Growth arrow large -->
-    <path d="M200 350 C300 280 450 200 600 140 C750 80 900 60 1100 40" stroke="white" stroke-width="2" stroke-dasharray="8 12" stroke-linecap="round" opacity=".6"/>
-    <polygon points="1108,32 1100,48 1116,40" fill="white" opacity=".6"/>
-    <!-- Shield right -->
-    <path d="M1050 180 L1120 210 L1120 300 C1120 340 1050 370 1050 370 C1050 370 980 340 980 300 L980 210 Z" stroke="white" stroke-width="1.5" fill="none" opacity=".4"/>
-    <line x1="1050" y1="250" x2="1050" y2="310" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".4"/>
-    <line x1="1020" y1="280" x2="1080" y2="280" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".4"/>
-    <!-- Small circles -->
-    <circle cx="400" cy="320" r="30" stroke="white" stroke-width="1" opacity=".2" stroke-dasharray="4 6"/>
-    <circle cx="700" cy="50" r="20" stroke="white" stroke-width="1" opacity=".2"/>
-    <circle cx="850" cy="340" r="15" stroke="white" stroke-width="1" opacity=".18"/>
-  </svg>
-  <div class="st-inner rv">
-    <h2 class="st-h">Your health costs will rise.<br><em>Will your savings?</em></h2>
-    <div>
-      <div class="st-body">
-        <p>Nigeria is in the middle of a quiet health crisis. Hypertension, diabetes, and kidney disease are increasingly affecting working Nigerians — many undiagnosed, none financially prepared.</p>
-        <p>A dedicated health savings account that grows while you wait and pays when you need care. Built on transparency, ethics, and access for every Nigerian.</p>
-      </div>
-      <a href="https://span-hfintech.vercel.app" class="btn-cw" style="display:inline-flex">Open an Account →</a>
+  <div class="st-inner">
+
+    <!-- LEFT -->
+    <div class="st-left">
+      <div class="st-lbl">Health in Nigeria</div>
+      <h2 class="st-h">Your health costs<br>will rise.<br><em>Will your savings?</em></h2>
+      <p class="st-sub">Nigeria is in the middle of a quiet health crisis — many undiagnosed, none financially prepared. Span exists to change that.</p>
     </div>
+
+    <!-- RIGHT — full photo with overlaid stats -->
+    <div class="st-right">
+      <div class="st-photo">
+        <img src="img/smile.jpg" alt="Nigerian family">
+      </div>
+      <div class="st-overlay"></div>
+      <div class="st-accent"></div>
+      <div class="st-caption">Real Nigerians. Real health costs.</div>
+      <div class="st-stats">
+        <div class="st-stat"><div class="st-sv">8M+</div><div class="st-sl">Diabetics</div></div>
+        <div class="st-stat"><div class="st-sv">1 in 4</div><div class="st-sl">Hypertensive</div></div>
+        <div class="st-stat"><div class="st-sv">₦480k</div><div class="st-sl">Avg crisis cost</div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
