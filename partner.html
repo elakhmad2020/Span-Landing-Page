@@ -83,11 +83,11 @@ body{
 .partners-row{display:flex;gap:1.4rem;justify-content:center;margin-top:2.4rem;flex-wrap:wrap}
 .p-card{background:rgba(255,255,255,.04);border:1px solid rgba(45,184,212,.18);border-radius:16px;padding:36px 48px;text-align:center;transition:all .25s;min-width:220px}
 .p-card:hover{background:rgba(45,184,212,.08);border-color:rgba(45,184,212,.4);transform:translateY(-3px)}
-.p-logo-box{height:60px;background:rgba(255,255,255,.06);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.08em;margin-bottom:16px;padding:0 16px}
-.p-logo-box img{height:36px;width:auto;object-fit:contain;opacity:.65;filter:brightness(0) invert(1)}
+.p-logo-box{height:120px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;padding:16px 24px}
+.p-logo-box img{height:64px;width:auto;max-width:100%;object-fit:contain;opacity:1}
 .p-name{font-size:1rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif}
 .p-type{font-size:.68rem;color:#2DB8D4;letter-spacing:.08em;text-transform:uppercase;margin-top:5px;font-family:'Inter',sans-serif}
-
+v
 /* ── PARTNER CATEGORIES ── */
 .categories{padding:80px 5%}
 .sec-head{text-align:center;margin-bottom:3rem}
@@ -107,7 +107,6 @@ body{
 .apply-sec::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(45,184,212,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(45,184,212,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
 .apply-sec::after{content:'';position:absolute;bottom:-100px;left:-100px;width:360px;height:360px;border-radius:50%;background:rgba(45,184,212,.05);pointer-events:none}
 .apply-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start;position:relative;z-index:1}
-.apply-left{}
 .apply-left h2{font-family:'Inter',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:#fff;letter-spacing:-.025em;line-height:1.1;margin-bottom:.8rem}
 .apply-left h2 em{font-style:normal;color:#2DB8D4}
 .apply-left p{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.82;margin-bottom:.8rem}
@@ -118,7 +117,7 @@ body{
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .form-field{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
 .form-field label{font-size:.68rem;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase;font-family:'Inter',sans-serif}
-.form-field input,.form-field select,.form-field textarea{background:rgba(255,255,255,.06);border:1px solid rgba(45,184,212,.2);border-radius:9px;padding:11px 14px;font-size:.88rem;color:#fff;font-family:'DM Sans',sans-serif;outline:none;transition:border .2s;-webkit-appearance:none;width:100%}
+.form-field input,.form-field select,.form-field textarea{background:rgba(255,255,255,.06);border:1px solid rgba(45,184,212,.2);border-radius:9px;padding:11px 14px;font-size:.88rem;color:#fff;font-family:'DM Sans',sans-serif;outline:none;transition:border .2s;-webkit-appearance:none;appearance:none;width:100%}
 .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(255,255,255,.22)}
 .form-field select{color:rgba(255,255,255,.65)}
 .form-field select option{background:#020C12;color:#fff}
@@ -194,7 +193,7 @@ html{background:#060e11}
     <li><a href="index.html#testimonials">Testimonials</a></li>
   </ul>
   <div class="nav-r">
-    <a href="maintenance.html" class="btn-cta nav-login">Log in</a>
+    <a href="maintenance.html" class="btn-cta">Log in</a>
     <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -204,7 +203,6 @@ html{background:#060e11}
   <a href="index.html#services" onclick="toggleMenu()">Services</a>
   <a href="index.html#whyspan" onclick="toggleMenu()">Why Span</a>
   <a href="index.html#testimonials" onclick="toggleMenu()">Testimonials</a>
-  <a href="maintenance.html" class="btn-cta" onclick="toggleMenu()">Log in</a>
 </div>
 
 <!-- HERO -->
@@ -217,18 +215,15 @@ html{background:#060e11}
 <section class="partners-sec">
   <div class="rv">
     <div class="sec-lbl w">Our Current Partners</div>
-    <h2 class="sec-h white">Who we work with</h2>
   </div>
   <div class="partners-row rv d1">
     <div class="p-card">
-      <div class="p-logo-box">WELLA HEALTH</div>
+      <div class="p-logo-box"><img src="img/wella.png" alt="Wella Health"></div>
       <div class="p-name">Wella Health</div>
-      <div class="p-type">Health Platform Partner</div>
     </div>
     <div class="p-card">
-      <div class="p-logo-box">KONOOZ</div>
+      <div class="p-logo-box"><img src="img/konooz.png" alt="Konooz Investment"></div>
       <div class="p-name">Konooz Investment</div>
-      <div class="p-type">Investment Partner</div>
     </div>
   </div>
 </section>
@@ -467,11 +462,26 @@ html{background:#060e11}
 </div>
 
 <script>
-  const nav=document.getElementById('nav');
-  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+  window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40));
   function toggleMenu(){
     document.getElementById('mmenu').classList.toggle('open');
   }
   </script>
+  
+  <script>
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+    function toggleMenu(){
+      document.getElementById('mmenu').classList.toggle('open');
+    }
+    </script>
+    
+    <script>
+      const obs=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+      },{threshold:.08,rootMargin:'0px 0px -24px 0px'});
+      document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+    </script>
+    </body>
 </body>
 </html>
